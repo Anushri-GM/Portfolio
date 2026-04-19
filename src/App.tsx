@@ -218,9 +218,6 @@ function App() {
                 <p className="project-desc">{project.desc}</p>
                 <div className="project-links">
                   <a href={project.link} className="project-link">
-                    <Terminal size={18} /> Code
-                  </a>
-                  <a href={project.link} className="project-link">
                     <ExternalLink size={18} /> Live Demo
                   </a>
                 </div>
