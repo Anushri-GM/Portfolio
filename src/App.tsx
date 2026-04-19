@@ -13,6 +13,7 @@ import {
   Mail,
   ExternalLink
 } from 'lucide-react'
+import ParticleCursor from './ParticleCursor'
 import './App.css'
 
 // -- Animation Variants --
@@ -89,37 +90,23 @@ const experience = [
 
 function App() {
   const [scrolled, setScrolled] = useState(false)
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const { scrollY } = useScroll()
   const heroImageY = useTransform(scrollY, [0, 500], [0, 150])
 
   // Handle scroll for navbar and mouse position for cursor
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50)
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY })
-    }
-    
     window.addEventListener('scroll', handleScroll)
-    window.addEventListener('mousemove', handleMouseMove)
     
     return () => {
       window.removeEventListener('scroll', handleScroll)
-      window.removeEventListener('mousemove', handleMouseMove)
     }
   }, [])
 
   return (
     <div className="app-container">
-      {/* Custom Cursor Glow */}
-      <motion.div
-        className="cursor-glow"
-        animate={{
-          x: mousePosition.x - 200,
-          y: mousePosition.y - 200,
-        }}
-        transition={{ type: 'tween', ease: 'backOut', duration: 0.5 }}
-      />
+      {/* Custom Particle Cursor */}
+      <ParticleCursor />
       
       {/* Noise Overlay */}
       <div className="noise-overlay"></div>
@@ -129,9 +116,6 @@ function App() {
 
       {/* Navigation */}
       <nav className={`navbar ${scrolled ? 'nav-scrolled' : ''}`}>
-        <div className="nav-logo">
-          <span className="gradient-text">Anush.AI</span>
-        </div>
         <div className="nav-links">
           <a href="#about" className="nav-link">About</a>
           <a href="#projects" className="nav-link">Projects</a>
@@ -148,7 +132,6 @@ function App() {
           variants={fadeUpVar}
           className="hero-content"
         >
-          <p className="hero-greeting">Initialize &lt;Anush /&gt;</p>
           <h1 className="hero-title">
             Architecting <br />
             <span className="gradient-text">Intelligent Futures.</span>
@@ -162,16 +145,10 @@ function App() {
           </div>
         </motion.div>
         
-        <motion.div
-           style={{ y: heroImageY }}
-           initial={{ opacity: 0, scale: 0.8 }}
-           animate={{ opacity: 1, scale: 1 }}
-           transition={{ duration: 1, ease: "easeOut" }}
-           className="hero-image-wrapper"
-        >
+        <div className="hero-image-wrapper">
            <div className="hero-image-glow"></div>
            <img src="/profile.png" alt="Anush" className="hero-image" />
-        </motion.div>
+        </div>
       </section>
 
       {/* About & Skills Section */}
