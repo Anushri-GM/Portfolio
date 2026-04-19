@@ -32,20 +32,20 @@ const staggerVar: Variants = {
 
 // -- Data --
 const skills = [
-  { title: "Python", icon: <Terminal />, color: "#3776ab", bg: "rgba(55, 118, 171, 0.35)" },
-  { title: "PyTorch", icon: <BrainCircuit />, color: "#ee4c2c", bg: "rgba(238, 76, 44, 0.35)" },
-  { title: "TensorFlow", icon: <BrainCircuit />, color: "#ff6f00", bg: "rgba(255, 111, 0, 0.35)" },
-  { title: "React", icon: <Code2 />, color: "#61dafb", bg: "rgba(97, 218, 251, 0.35)" },
-  { title: "Next.js", icon: <Code2 />, color: "#ffffff", bg: "rgba(255, 255, 255, 0.25)" },
-  { title: "TypeScript", icon: <Code2 />, color: "#3178c6", bg: "rgba(49, 120, 198, 0.35)" },
-  { title: "Node.js", icon: <Terminal />, color: "#339933", bg: "rgba(51, 153, 51, 0.35)" },
-  { title: "FastAPI", icon: <Terminal />, color: "#05998b", bg: "rgba(5, 153, 139, 0.35)" },
-  { title: "AWS", icon: <Cloud />, color: "#ff9900", bg: "rgba(255, 153, 0, 0.35)" },
-  { title: "Docker", icon: <Cloud />, color: "#2496ed", bg: "rgba(36, 150, 237, 0.35)" },
-  { title: "PostgreSQL", icon: <Database />, color: "#336791", bg: "rgba(51, 103, 145, 0.35)" },
-  { title: "MongoDB", icon: <Database />, color: "#47a248", bg: "rgba(71, 162, 72, 0.35)" },
-  { title: "Pinecone", icon: <Database />, color: "#2ecc71", bg: "rgba(46, 204, 113, 0.35)" },
-  { title: "Framer Motion", icon: <Code2 />, color: "#ff0055", bg: "rgba(255, 0, 85, 0.35)" }
+  { title: "Python", icon: <Terminal />, color: "#AEC6CF", bg: "rgba(174, 198, 207, 0.4)" },
+  { title: "PyTorch", icon: <BrainCircuit />, color: "#FFD1DC", bg: "rgba(255, 209, 220, 0.4)" },
+  { title: "TensorFlow", icon: <BrainCircuit />, color: "#FFB347", bg: "rgba(255, 179, 71, 0.4)" },
+  { title: "React", icon: <Code2 />, color: "#B2D8B2", bg: "rgba(178, 216, 178, 0.4)" },
+  { title: "Next.js", icon: <Code2 />, color: "#CFCFC4", bg: "rgba(207, 207, 196, 0.4)" },
+  { title: "TypeScript", icon: <Code2 />, color: "#779ECB", bg: "rgba(119, 158, 203, 0.4)" },
+  { title: "Node.js", icon: <Terminal />, color: "#03C03C", bg: "rgba(3, 192, 60, 0.4)" },
+  { title: "FastAPI", icon: <Terminal />, color: "#966FD6", bg: "rgba(150, 111, 214, 0.4)" },
+  { title: "AWS", icon: <Cloud />, color: "#FDFD96", bg: "rgba(253, 253, 150, 0.4)" },
+  { title: "Docker", icon: <Cloud />, color: "#836953", bg: "rgba(131, 105, 83, 0.4)" },
+  { title: "PostgreSQL", icon: <Database />, color: "#B19CD9", bg: "rgba(177, 156, 217, 0.4)" },
+  { title: "MongoDB", icon: <Database />, color: "#77DD77", bg: "rgba(119, 221, 119, 0.4)" },
+  { title: "Pinecone", icon: <Database />, color: "#DEA5A4", bg: "rgba(222, 165, 164, 0.4)" },
+  { title: "Framer Motion", icon: <Code2 />, color: "#FF6961", bg: "rgba(255, 105, 97, 0.4)" }
 ]
 
 const projects = [
