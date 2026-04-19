@@ -32,12 +32,12 @@ const staggerVar: Variants = {
 
 // -- Data --
 const skills = [
-  { title: "AI & Machine Learning", icon: <BrainCircuit />, desc: "PyTorch, TensorFlow, Scikit-learn, NLP" },
-  { title: "Frontend Development", icon: <Code2 />, desc: "React, TypeScript, Next.js, Framer Motion" },
-  { title: "Backend Systems", icon: <Terminal />, desc: "Node.js, Express, Python, FastAPI" },
-  { title: "Cloud & DevOps", icon: <Cloud />, desc: "AWS, Docker, Kubernetes, CI/CD" },
-  { title: "Cybersecurity", icon: <Shield />, desc: "Network Security, Web Pentesting, Cryptography" },
-  { title: "Databases", icon: <Database />, desc: "PostgreSQL, MongoDB, Redis, Pinecone" }
+  { title: "AI & Machine Learning", icon: <BrainCircuit />, desc: "PyTorch, TensorFlow, Scikit-learn, NLP", color: "var(--accent-purple)" },
+  { title: "Frontend Development", icon: <Code2 />, desc: "React, TypeScript, Next.js, Framer Motion", color: "var(--accent-cyan)" },
+  { title: "Backend Systems", icon: <Terminal />, desc: "Node.js, Express, Python, FastAPI", color: "#10b981" },
+  { title: "Cloud & DevOps", icon: <Cloud />, desc: "AWS, Docker, Kubernetes, CI/CD", color: "#f59e0b" },
+  { title: "Cybersecurity", icon: <Shield />, desc: "Network Security, Web Pentesting, Cryptography", color: "#f43f5e" },
+  { title: "Databases", icon: <Database />, desc: "PostgreSQL, MongoDB, Redis, Pinecone", color: "var(--accent-pink)" }
 ]
 
 const projects = [
@@ -173,8 +173,9 @@ function App() {
               key={index} 
               className="skill-card glass-panel"
               variants={fadeUpVar}
+              style={{ '--skill-color': skill.color } as any}
             >
-              <div className="skill-icon">{skill.icon}</div>
+              <div className="skill-icon" style={{ color: skill.color }}>{skill.icon}</div>
               <h3 className="skill-title">{skill.title}</h3>
               <p className="skill-desc">{skill.desc}</p>
             </motion.div>
