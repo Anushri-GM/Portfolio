@@ -138,6 +138,7 @@
 
 .skill-card:hover {
   transform: translateY(-8px);
+  background: var(--skill-color) !important;
   border-color: var(--skill-color);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 20px var(--skill-color);
 }

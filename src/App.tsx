@@ -32,12 +32,12 @@ const staggerVar: Variants = {
 
 // -- Data --
 const skills = [
-  { title: "AI & Machine Learning", icon: <BrainCircuit />, desc: "PyTorch, TensorFlow, Scikit-learn, NLP", color: "var(--accent-purple)" },
-  { title: "Frontend Development", icon: <Code2 />, desc: "React, TypeScript, Next.js, Framer Motion", color: "var(--accent-cyan)" },
-  { title: "Backend Systems", icon: <Terminal />, desc: "Node.js, Express, Python, FastAPI", color: "#10b981" },
-  { title: "Cloud & DevOps", icon: <Cloud />, desc: "AWS, Docker, Kubernetes, CI/CD", color: "#f59e0b" },
-  { title: "Cybersecurity", icon: <Shield />, desc: "Network Security, Web Pentesting, Cryptography", color: "#f43f5e" },
-  { title: "Databases", icon: <Database />, desc: "PostgreSQL, MongoDB, Redis, Pinecone", color: "var(--accent-pink)" }
+  { title: "AI & Machine Learning", icon: <BrainCircuit />, desc: "PyTorch, TensorFlow, Scikit-learn, NLP", color: "#a855f7", bg: "rgba(168, 85, 247, 0.15)" },
+  { title: "Frontend Development", icon: <Code2 />, desc: "React, TypeScript, Next.js, Framer Motion", color: "#06b6d4", bg: "rgba(6, 182, 212, 0.15)" },
+  { title: "Backend Systems", icon: <Terminal />, desc: "Node.js, Express, Python, FastAPI", color: "#10b981", bg: "rgba(16, 185, 129, 0.15)" },
+  { title: "Cloud & DevOps", icon: <Cloud />, desc: "AWS, Docker, Kubernetes, CI/CD", color: "#f59e0b", bg: "rgba(245, 158, 11, 0.15)" },
+  { title: "Cybersecurity", icon: <Shield />, desc: "Network Security, Web Pentesting, Cryptography", color: "#f43f5e", bg: "rgba(244, 63, 94, 0.15)" },
+  { title: "Databases", icon: <Database />, desc: "PostgreSQL, MongoDB, Redis, Pinecone", color: "#ec4899", bg: "rgba(236, 72, 153, 0.15)" }
 ]
 
 const projects = [
@@ -173,7 +173,11 @@ function App() {
               key={index} 
               className="skill-card glass-panel"
               variants={fadeUpVar}
-              style={{ '--skill-color': skill.color } as any}
+              style={{ 
+                '--skill-color': skill.color,
+                '--skill-bg': skill.bg,
+                background: skill.bg 
+              } as any}
             >
               <div className="skill-icon" style={{ color: skill.color }}>{skill.icon}</div>
               <h3 className="skill-title">{skill.title}</h3>
