@@ -115,9 +115,9 @@ function App() {
       {/* Navigation */}
       <nav className={`navbar ${scrolled ? 'nav-scrolled' : ''}`}>
         <div className="nav-links">
+          <a href="#experience" className="nav-link">Experience</a>
           <a href="#about" className="nav-link">About</a>
           <a href="#projects" className="nav-link">Projects</a>
-          <a href="#experience" className="nav-link">Experience</a>
           <a href="#contact" className="nav-link">Contact</a>
         </div>
       </nav>
@@ -131,11 +131,10 @@ function App() {
           className="hero-content"
         >
           <h1 className="hero-title">
-            Architecting <br />
-            <span className="gradient-text">Intelligent Futures.</span>
+            <span className="gradient-text">Anushri G M</span>
           </h1>
           <p className="hero-subtitle">
-            I'm Anush, an AI & Data Science specialist fusing neural networks with high-performance systemic engineering. From generating synthetic realities to fortifying cloud architectures.
+            An AI & Data Science specialist fusing neural networks with high-performance systemic engineering. From generating synthetic realities to fortifying cloud architectures.
           </p>
           <div className="hero-cta">
             <a href="#projects" className="glow-btn">Deploy Projects</a>
@@ -146,6 +145,40 @@ function App() {
         <div className="hero-image-wrapper">
            <div className="hero-image-glow"></div>
            <img src="/profile.png" alt="Anush" className="hero-image" />
+        </div>
+      </section>
+
+      {/* Experience & Education Section */}
+      <section id="experience" className="section-container">
+        <motion.h2 
+          className="section-title"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeUpVar}
+        >
+          Experience & Education
+        </motion.h2>
+
+        <div className="timeline">
+          {experience.map((item, index) => (
+            <motion.div 
+              key={index} 
+              className="timeline-item"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+              variants={fadeUpVar}
+            >
+              <div className="timeline-dot"></div>
+              <div className="timeline-content glass-panel">
+                <span className="timeline-date">{item.date}</span>
+                <h3 className="timeline-title">{item.title}</h3>
+                <p className="timeline-org">{item.org}</p>
+                <p className="timeline-desc">{item.desc}</p>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </section>
 
@@ -230,40 +263,6 @@ function App() {
             </motion.div>
           ))}
         </motion.div>
-      </section>
-
-      {/* Experience & Education Section */}
-      <section id="experience" className="section-container">
-        <motion.h2 
-          className="section-title"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeUpVar}
-        >
-          Experience & Education
-        </motion.h2>
-
-        <div className="timeline">
-          {experience.map((item, index) => (
-            <motion.div 
-              key={index} 
-              className="timeline-item"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-50px" }}
-              variants={fadeUpVar}
-            >
-              <div className="timeline-dot"></div>
-              <div className="timeline-content glass-panel">
-                <span className="timeline-date">{item.date}</span>
-                <h3 className="timeline-title">{item.title}</h3>
-                <p className="timeline-org">{item.org}</p>
-                <p className="timeline-desc">{item.desc}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
       </section>
 
       {/* Contact Section */}
