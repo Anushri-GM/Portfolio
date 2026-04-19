@@ -551,3 +551,8 @@
     max-width: 250px;
   }
 }
+  
+.resume-link { background: var(--accent-taupe); color: #030305 !important; padding: 6px 14px !important; border-radius: 6px; font-weight: 700; margin-left: 10px; display: flex; align-items: center; }  
+.resume-link:hover { transform: translateY(-2px); filter: brightness(1.1); }  
+.resume-download { border: 1px solid var(--accent-taupe); color: var(--accent-taupe) !important; background: rgba(166, 156, 144, 0.05); }  
+.resume-download:hover { background: var(--accent-taupe) !important; color: #030305 !important; } 

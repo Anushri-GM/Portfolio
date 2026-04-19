@@ -14,7 +14,8 @@ import {
   ExternalLink,
   Github,
   Linkedin,
-  Twitter
+  Twitter,
+  FileDown
 } from 'lucide-react'
 import ParticleCursor from './ParticleCursor'
 import './App.css'
@@ -130,6 +131,7 @@ function App() {
           <a href="#about" className="nav-link">About</a>
           <a href="#projects" className="nav-link">Projects</a>
           <a href="#contact" className="nav-link">Contact</a>
+          <a href="/resume.pdf" target="_blank" className="nav-link resume-link">Resume</a>
         </div>
       </nav>
 
@@ -295,6 +297,9 @@ function App() {
               <a href="#" className="social-link" title="LinkedIn"><Linkedin size={20} /></a>
               <a href="#" className="social-link" title="Twitter"><Twitter size={20} /></a>
               <a href="#" className="social-link" title="Email"><Mail size={20} /></a>
+              <a href="/resume.pdf" download className="social-link resume-download" title="Download Resume">
+                <FileDown size={20} />
+              </a>
             </div>
           </div>
 
