@@ -476,6 +476,7 @@
   font-weight: 800;
   font-size: 1.5rem;
   letter-spacing: -1px;
+  color: #ffffff;
 }
 
 .nav-links {
@@ -486,8 +487,9 @@
 .nav-link {
   font-size: 0.95rem;
   font-weight: 500;
-  color: var(--text-secondary);
+  color: #ffffff;
   position: relative;
+  opacity: 0.9;
 }
 
 .nav-link::after {
@@ -503,6 +505,7 @@
 
 .nav-link:hover {
   color: var(--text-primary);
+  opacity: 1;
 }
 
 .nav-link:hover::after {
