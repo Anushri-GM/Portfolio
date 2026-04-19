@@ -32,12 +32,20 @@ const staggerVar: Variants = {
 
 // -- Data --
 const skills = [
-  { title: "AI & Machine Learning", icon: <BrainCircuit />, desc: "PyTorch, TensorFlow, Scikit-learn, NLP", color: "#a855f7", bg: "rgba(168, 85, 247, 0.15)" },
-  { title: "Frontend Development", icon: <Code2 />, desc: "React, TypeScript, Next.js, Framer Motion", color: "#06b6d4", bg: "rgba(6, 182, 212, 0.15)" },
-  { title: "Backend Systems", icon: <Terminal />, desc: "Node.js, Express, Python, FastAPI", color: "#10b981", bg: "rgba(16, 185, 129, 0.15)" },
-  { title: "Cloud & DevOps", icon: <Cloud />, desc: "AWS, Docker, Kubernetes, CI/CD", color: "#f59e0b", bg: "rgba(245, 158, 11, 0.15)" },
-  { title: "Cybersecurity", icon: <Shield />, desc: "Network Security, Web Pentesting, Cryptography", color: "#f43f5e", bg: "rgba(244, 63, 94, 0.15)" },
-  { title: "Databases", icon: <Database />, desc: "PostgreSQL, MongoDB, Redis, Pinecone", color: "#ec4899", bg: "rgba(236, 72, 153, 0.15)" }
+  { title: "Python", icon: <Terminal />, color: "#3776ab", bg: "rgba(55, 118, 171, 0.15)" },
+  { title: "PyTorch", icon: <BrainCircuit />, color: "#ee4c2c", bg: "rgba(238, 76, 44, 0.15)" },
+  { title: "TensorFlow", icon: <BrainCircuit />, color: "#ff6f00", bg: "rgba(255, 111, 0, 0.15)" },
+  { title: "React", icon: <Code2 />, color: "#61dafb", bg: "rgba(97, 218, 251, 0.15)" },
+  { title: "Next.js", icon: <Code2 />, color: "#ffffff", bg: "rgba(255, 255, 255, 0.1)" },
+  { title: "TypeScript", icon: <Code2 />, color: "#3178c6", bg: "rgba(49, 120, 198, 0.15)" },
+  { title: "Node.js", icon: <Terminal />, color: "#339933", bg: "rgba(51, 153, 51, 0.15)" },
+  { title: "FastAPI", icon: <Terminal />, color: "#05998b", bg: "rgba(5, 153, 139, 0.15)" },
+  { title: "AWS", icon: <Cloud />, color: "#ff9900", bg: "rgba(255, 153, 0, 0.15)" },
+  { title: "Docker", icon: <Cloud />, color: "#2496ed", bg: "rgba(36, 150, 237, 0.15)" },
+  { title: "PostgreSQL", icon: <Database />, color: "#336791", bg: "rgba(51, 103, 145, 0.15)" },
+  { title: "MongoDB", icon: <Database />, color: "#47a248", bg: "rgba(71, 162, 72, 0.15)" },
+  { title: "Pinecone", icon: <Database />, color: "#2ecc71", bg: "rgba(46, 204, 113, 0.15)" },
+  { title: "Framer Motion", icon: <Code2 />, color: "#ff0055", bg: "rgba(255, 0, 85, 0.15)" }
 ]
 
 const projects = [
@@ -213,8 +221,7 @@ function App() {
               } as any}
             >
               <div className="skill-icon" style={{ color: skill.color }}>{skill.icon}</div>
-              <h3 className="skill-title">{skill.title}</h3>
-              <p className="skill-desc">{skill.desc}</p>
+              <h3 className="skill-title" style={{marginBottom: 0}}>{skill.title}</h3>
             </motion.div>
           ))}
         </motion.div>
