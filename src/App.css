@@ -43,6 +43,16 @@
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
   z-index: 2;
   position: relative;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hero-image:hover {
+  transform: scale(1.03) rotate(1deg);
+  border-color: var(--accent-cyan);
+  box-shadow: 
+    0 30px 60px rgba(0, 0, 0, 0.6),
+    0 0 40px rgba(0, 240, 255, 0.2),
+    0 0 80px rgba(138, 43, 226, 0.15);
 }
 
 .hero-image-glow {
