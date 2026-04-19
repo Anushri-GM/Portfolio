@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import type { Variants } from 'framer-motion'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion } from 'framer-motion'
 import {
   Code2,
   Database,
@@ -90,8 +90,6 @@ const experience = [
 
 function App() {
   const [scrolled, setScrolled] = useState(false)
-  const { scrollY } = useScroll()
-  const heroImageY = useTransform(scrollY, [0, 500], [0, 150])
 
   // Handle scroll for navbar and mouse position for cursor
   useEffect(() => {
