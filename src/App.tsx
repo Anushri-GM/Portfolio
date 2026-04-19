@@ -7,7 +7,6 @@ import {
   Terminal,
   BrainCircuit,
   Cloud,
-  Shield,
   Briefcase,
   GraduationCap,
   Mail,
@@ -317,7 +316,7 @@ function App() {
             </div>
             <div className="form-group">
               <label className="form-label">Message</label>
-              <textarea className="form-textarea" placeholder="Hello Anush, deploying a message concerning..."></textarea>
+              <textarea className="form-textarea" placeholder="Hello Anushri, deploying a message concerning..."></textarea>
             </div>
             <button type="button" className="glow-btn" style={{ width: '100%' }}>Send Message</button>
           </form>
