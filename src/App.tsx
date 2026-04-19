@@ -11,7 +11,10 @@ import {
   Briefcase,
   GraduationCap,
   Mail,
-  ExternalLink
+  ExternalLink,
+  Github,
+  Linkedin,
+  Twitter
 } from 'lucide-react'
 import ParticleCursor from './ParticleCursor'
 import './App.css'
@@ -288,9 +291,9 @@ function App() {
             <p>Ready to deploy new ideas in Summer 2026. Whether you have a challenging neural architecture question or just want to network, my inbox is always listening.</p>
             
             <div className="social-links">
-              <a href="#" className="social-link" title="GitHub"><span style={{fontSize:'1rem', fontWeight:800}}>GH</span></a>
-              <a href="#" className="social-link" title="LinkedIn"><span style={{fontSize:'1rem', fontWeight:800}}>IN</span></a>
-              <a href="#" className="social-link" title="Twitter"><span style={{fontSize:'1rem', fontWeight:800}}>X</span></a>
+              <a href="#" className="social-link" title="GitHub"><Github size={20} /></a>
+              <a href="#" className="social-link" title="LinkedIn"><Linkedin size={20} /></a>
+              <a href="#" className="social-link" title="Twitter"><Twitter size={20} /></a>
               <a href="#" className="social-link" title="Email"><Mail size={20} /></a>
             </div>
           </div>
