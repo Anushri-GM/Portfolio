@@ -63,7 +63,7 @@ const projects = [
   },
   {
     title: "Wayora – AI Travel Companion Platform",
-    desc: "Designed an AI-driven travel platform with itinerary generation, budget optimization, and integrated accommodation, transport, and local discovery modules.",
+    desc: "Designed an AI-driven travel platform with itinerary generation, budget optimization, and integrated accommodation, transport, and local discovery modules.intro",
     tags: ["React Native", "Supabase", "PostgreSQL", "OpenStreetMap"],
     image: "https://www.image2url.com/r2/default/images/1777009379723-359ecf56-aff1-4b42-ad4d-1f6f3c34cec4.png",
     link: "#"
@@ -71,6 +71,13 @@ const projects = [
 ]
 
 const experience = [
+  {
+    date: "Present",
+    title: "Internship",
+    org: "Company Name",
+    desc: "",
+    icon: <Briefcase size={20} />
+  },
   {
     date: "Aug 2024 - May 2028",
     title: "PSG Institute of Technology and Applied Research, Coimbatore",
@@ -88,7 +95,6 @@ const experience = [
 
 function App() {
   const [scrolled, setScrolled] = useState(false)
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
 
   // Handle scroll for navbar and mouse position for cursor
   useEffect(() => {
@@ -99,18 +105,6 @@ function App() {
       window.removeEventListener('scroll', handleScroll)
     }
   }, [])
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({ ...prevData, [name]: value }));
-  };
-
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
-    const { name, email, message } = formData;
-    const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=anushritcs@gmail.com&su=Contact from ${name}&body=${message}`;
-    window.open(gmailLink, '_blank');
-  };
 
   return (
     <div className="app-container">
@@ -126,6 +120,7 @@ function App() {
       {/* Navigation */}
       <nav className={`navbar ${scrolled ? 'nav-scrolled' : ''}`}>
         <div className="nav-links">
+          <a href="#home" className="nav-link">About</a>
           <a href="#experience" className="nav-link">Experience</a>
           <a href="#skills" className="nav-link">Skills</a>
           <a href="#projects" className="nav-link">Projects</a>
@@ -293,25 +288,24 @@ function App() {
               <a href="https://www.linkedin.com/in/anushri-g-m-221b77350?utm_source=share_via" className="social-link" title="LinkedIn">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M22.23 0H1.77C.8 0 0 .77 0 1.72v20.56C0 23.23.8 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.21 0 22.23 0zM7.12 20.45H3.56V9h3.56v11.45zM5.34 7.43c-1.14 0-2.06-.92-2.06-2.06 0-1.14.92-2.06 2.06-2.06 1.14 0 2.06.92 2.06 2.06 0 1.14-.92 2.06-2.06 2.06zm15.11 13.02h-3.56v-5.56c0-1.33-.03-3.03-1.85-3.03-1.85 0-2.13 1.44-2.13 2.93v5.66h-3.56V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29z"/></svg>
               </a>
-              <a href="mailto:anushritcs@gmail.com" className="social-link" title="Email"><Mail size={20} /></a>
-              <a href="https://www.image2url.com/r2/default/documents/1777009685867-1c1ff59d-a4af-4637-b40c-e846d62a6eae.pdf" download className="social-link" title="Download Resume">
+              <a href="https://www.image2url.com/r2/default/documents/1777009685867-1c1ff59d-a4af-4637-b40c-e846d62a6eae.pdf" target="_blank" rel="noopener noreferrer" className="social-link" title="Download Resume">
                 <FileDown size={20} />
               </a>
             </div>
           </div>
 
-          <form className="contact-form" onSubmit={handleFormSubmit}>
+          <form className="contact-form">
             <div className="form-group">
               <label className="form-label">Name</label>
-              <input type="text" className="form-input" placeholder="John Doe" name="name" value={formData.name} onChange={handleInputChange} />
+              <input type="text" className="form-input" placeholder="Enter your name..." />
             </div>
             <div className="form-group">
               <label className="form-label">Email</label>
-              <input type="email" className="form-input" placeholder="john@example.com" name="email" value={formData.email} onChange={handleInputChange} />
+              <input type="email" className="form-input" placeholder="Enter your email..." />
             </div>
             <div className="form-group">
               <label className="form-label">Message</label>
-              <textarea className="form-textarea" placeholder="Hello Anushri, deploying a message concerning..." name="message" value={formData.message} onChange={handleInputChange}></textarea>
+              <textarea className="form-textarea" placeholder="Enter your message..."></textarea>
             </div>
             <button type="submit" className="glow-btn" style={{ width: '100%' }}>Send Message</button>
           </form>
