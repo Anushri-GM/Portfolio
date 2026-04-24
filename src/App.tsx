@@ -115,10 +115,10 @@ function App() {
       <nav className={`navbar ${scrolled ? 'nav-scrolled' : ''}`}>
         <div className="nav-links">
           <a href="#experience" className="nav-link">Experience</a>
-          <a href="#about" className="nav-link">About</a>
+          <a href="#skills" className="nav-link">Skills</a>
           <a href="#projects" className="nav-link">Projects</a>
           <a href="#contact" className="nav-link">Contact</a>
-          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="nav-link resume-link">Resume</a>
+          <a href="https://www.image2url.com/r2/default/documents/1777009685867-1c1ff59d-a4af-4637-b40c-e846d62a6eae.pdf" target="_blank" rel="noopener noreferrer" className="nav-link resume-link">Resume</a>
         </div>
       </nav>
 
@@ -134,7 +134,7 @@ function App() {
             <span className="gradient-text">Anushri G M</span>
           </h1>
           <p className="hero-subtitle">
-            I focus on building clean, efficient solutions driven by curiosity and precision. With a strong foundation in technology, I approach problems with clarity, continuously learning and refining the way I think, design, and create.
+			A passionate technologist driven to build intelligent systems and continuously expand my expertise in AI and modern software development. I focus on transforming ideas into efficient, scalable solutions while learning, experimenting, and evolving with emerging technologies.
           </p>
           <div className="hero-cta">
             <a href="#projects" className="glow-btn">Deploy Projects</a>
@@ -183,7 +183,7 @@ function App() {
       </section>
 
       {/* About & Skills Section */}
-      <section id="about" className="section-container">
+      <section id="skills" className="section-container">
         <motion.h2 
           className="section-title"
           initial="hidden"
@@ -253,9 +253,6 @@ function App() {
                 </div>
                 <h3 className="project-title">{project.title}</h3>
                 <p className="project-desc">{project.desc}</p>
-                <a href={project.link} className="project-link">
-                    Live Demo <ExternalLink size={16} />
-                </a>
               </div>
             </motion.div>
           ))}
@@ -275,7 +272,7 @@ function App() {
             <h2 className="section-title" style={{ textAlign: 'left', marginBottom: '20px' }}>
               Let's Build <br/>Something <span className="gradient-text">Epic.</span>
             </h2>
-            <p style={{ textAlign: 'left', marginBottom: '40px' }}>Ready to deploy new ideas in Summer 2026. Whether you have a challenging neural architecture question or just want to network, my inbox is always listening.</p>
+            <p style={{ textAlign: 'left', marginBottom: '40px' }}>Open to collaborating on bold ideas and intelligent systems—whether it’s solving complex AI challenges or simply connecting, I’m always ready to explore what’s next.</p>
             
             <div className="social-links">
               <a href="#" className="social-link" title="GitHub">
@@ -284,11 +281,8 @@ function App() {
               <a href="#" className="social-link" title="LinkedIn">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M22.23 0H1.77C.8 0 0 .77 0 1.72v20.56C0 23.23.8 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.21 0 22.23 0zM7.12 20.45H3.56V9h3.56v11.45zM5.34 7.43c-1.14 0-2.06-.92-2.06-2.06 0-1.14.92-2.06 2.06-2.06 1.14 0 2.06.92 2.06 2.06 0 1.14-.92 2.06-2.06 2.06zm15.11 13.02h-3.56v-5.56c0-1.33-.03-3.03-1.85-3.03-1.85 0-2.13 1.44-2.13 2.93v5.66h-3.56V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29z"/></svg>
               </a>
-              <a href="#" className="social-link" title="Twitter">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932 6.064-6.932zm-1.292 19.49h2.039L6.486 3.24H4.298l13.311 17.403z"/></svg>
-              </a>
               <a href="#" className="social-link" title="Email"><Mail size={20} /></a>
-              <a href="https://www.image2url.com/r2/default/documents/1777009685867-1c1ff59d-a4af-4637-b40c-e846d62a6eae.pdf" download className="social-link resume-download" title="Download Resume">
+              <a href="https://www.image2url.com/r2/default/documents/1777009685867-1c1ff59d-a4af-4637-b40c-e846d62a6eae.pdf" download className="social-link" title="Download Resume">
                 <FileDown size={20} />
               </a>
             </div>
