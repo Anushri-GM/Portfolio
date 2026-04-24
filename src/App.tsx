@@ -64,7 +64,7 @@ const projects = [
   },
   {
     title: "Wayora – AI Travel Companion Platform",
-    desc: "Designed a travel platform leveraging AI-driven itinerary generation, budget optimization, and recommendation systems, with integrated modules for accommodation, transport, and local experience discovery.",
+    desc: "Designed an AI-driven travel platform with itinerary generation, budget optimization, and integrated accommodation, transport, and local discovery modules.",
     tags: ["React Native", "TypeScript", "Google Maps API", "OCR Bill Scanning", "NLP Travel Assistant"],
     image: "https://www.image2url.com/r2/default/images/1777009379723-359ecf56-aff1-4b42-ad4d-1f6f3c34cec4.png",
     link: "#"
