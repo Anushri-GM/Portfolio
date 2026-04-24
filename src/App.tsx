@@ -32,67 +32,58 @@ const staggerVar: Variants = {
 
 // -- Data --
 const skills = [
-  { title: "Python", icon: <Terminal />, color: "#60a5fa", bg: "rgba(96, 165, 250, 0.25)" },
-  { title: "PyTorch", icon: <BrainCircuit />, color: "#f87171", bg: "rgba(248, 113, 113, 0.25)" },
-  { title: "TensorFlow", icon: <BrainCircuit />, color: "#fb923c", bg: "rgba(251, 146, 60, 0.25)" },
-  { title: "React", icon: <Code2 />, color: "#38bdf8", bg: "rgba(56, 189, 248, 0.25)" },
-  { title: "Next.js", icon: <Code2 />, color: "#94a3b8", bg: "rgba(148, 163, 184, 0.25)" },
-  { title: "TypeScript", icon: <Code2 />, color: "#818cf8", bg: "rgba(129, 140, 248, 0.25)" },
-  { title: "Node.js", icon: <Terminal />, color: "#4ade80", bg: "rgba(74, 222, 128, 0.25)" },
-  { title: "FastAPI", icon: <Terminal />, color: "#2dd4bf", bg: "rgba(45, 212, 191, 0.25)" },
-  { title: "AWS", icon: <Cloud />, color: "#fbbf24", bg: "rgba(251, 191, 36, 0.25)" },
-  { title: "Docker", icon: <Cloud />, color: "#0ea5e9", bg: "rgba(14, 165, 233, 0.25)" },
-  { title: "PostgreSQL", icon: <Database />, color: "#a78bfa", bg: "rgba(167, 139, 250, 0.25)" },
-  { title: "MongoDB", icon: <Database />, color: "#22c55e", bg: "rgba(34, 197, 94, 0.25)" },
-  { title: "Pinecone", icon: <Database />, color: "#f472b6", bg: "rgba(244, 114, 182, 0.25)" },
-  { title: "Framer Motion", icon: <Code2 />, color: "#fb7185", bg: "rgba(251, 113, 133, 0.25)" }
+  { title: "Java", icon: <Terminal />, color: "#60a5fa", bg: "rgba(96, 165, 250, 0.25)" },
+  { title: "Python", icon: <Terminal />, color: "#f87171", bg: "rgba(248, 113, 113, 0.25)" },
+  { title: "C", icon: <Terminal />, color: "#fb923c", bg: "rgba(251, 146, 60, 0.25)" },
+  { title: "HTML", icon: <Code2 />, color: "#38bdf8", bg: "rgba(56, 189, 248, 0.25)" },
+  { title: "React.js", icon: <Code2 />, color: "#94a3b8", bg: "rgba(148, 163, 184, 0.25)" },
+  { title: "Data Structures & Algorithms", icon: <BrainCircuit />, color: "#818cf8", bg: "rgba(129, 140, 248, 0.25)" },
+  { title: "Problem Solving", icon: <BrainCircuit />, color: "#4ade80", bg: "rgba(74, 222, 128, 0.25)" },
+  { title: "SQLite", icon: <Database />, color: "#2dd4bf", bg: "rgba(45, 212, 191, 0.25)" },
+  { title: "Firebase Firestore", icon: <Database />, color: "#fbbf24", bg: "rgba(251, 191, 36, 0.25)" },
+  { title: "GitHub", icon: <Terminal />, color: "#0ea5e9", bg: "rgba(14, 165, 233, 0.25)" },
+  { title: "Firebase Studio", icon: <Cloud />, color: "#a78bfa", bg: "rgba(167, 139, 250, 0.25)" },
+  { title: "Google GenAI", icon: <BrainCircuit />, color: "#22c55e", bg: "rgba(34, 197, 94, 0.25)" },
+  { title: "Vercel", icon: <Cloud />, color: "#f472b6", bg: "rgba(244, 114, 182, 0.25)" }
 ]
 
 const projects = [
   {
-    title: "NeuroGen AI",
-    desc: "An advanced neural network architecture for generating highly realistic synthetic data. Deployed using FastAPI and React.",
-    tags: ["Python", "PyTorch", "React", "FastAPI"],
-    image: "/neuro.png",
+    title: "Artistry Havens – AI Marketplace for Local Artisans",
+    desc: "Developed a full-stack marketplace for local artisans, integrating AI-driven storytelling, multilingual voice navigation, and visual analytics to enhance accessibility and product visibility.",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Firebase", "Vertex AI", "Gemini"],
+    image: "https://www.image2url.com/r2/default/images/1777008886634-1ffd0294-f6dd-46cf-a91d-ba86a665f82c.png",
     link: "#"
   },
   {
-    title: "CloudGuard",
-    desc: "A cloud security posture management tool that actively monitors AWS environments for misconfigurations.",
-    tags: ["AWS", "Node.js", "TypeScript", "DevSecOps"],
-    image: "/cloud.png",
+    title: "Academic Department Management Portal",
+    desc: "Contributed to frontend development and UI/UX design of an academic portal, creating intuitive interfaces to streamline navigation and improve user experience.",
+    tags: ["React.js", "Vite", "Tailwind CSS", "Framer Motion", "Node.js", "Express.js", "MongoDB"],
+    image: "/academic.png",
     link: "#"
   },
   {
-    title: "QuantBot",
-    desc: "Algorithmic trading bot leveraging reinforcement learning to optimize portfolio allocation in real-time.",
-    tags: ["Python", "Pandas", "Scikit-Learn", "Binance API"],
-    image: "/quant.png",
+    title: "Wayora – AI Travel Companion Platform",
+    desc: "Designed a travel platform leveraging AI-driven itinerary generation, budget optimization, and recommendation systems, with integrated modules for accommodation, transport, and local experience discovery.",
+    tags: ["React Native", "TypeScript", "Google Maps API", "OCR Bill Scanning", "NLP Travel Assistant"],
+    image: "https://www.image2url.com/r2/default/images/1777009379723-359ecf56-aff1-4b42-ad4d-1f6f3c34cec4.png",
     link: "#"
   }
 ]
 
 const experience = [
   {
-    date: "2024 - Present",
-    title: "AI Research Intern",
-    org: "Tech Innovations Labs",
-    desc: "Researching large language model optimisations for edge devices. Reduced inference time by 30% using quantization.",
-    icon: <Briefcase size={20} />
-  },
-  {
-    date: "2022 - 2026",
-    title: "BSc Computer Science (AI Spec)",
-    org: "University of Technology",
-    desc: "Relevant coursework: Deep Learning, Distributed Systems, Cryptography, Advanced Algorithms.",
+    date: "Aug 2024 - May 2028",
+    title: "PSG Institute of Technology and Applied Research, Coimbatore",
+    org: "B.Tech - Artificial Intelligence and Data Science",
+    desc: "CGPA - 8.03",
     icon: <GraduationCap size={20} />
   },
   {
-    date: "2023",
-    title: "Software Engineering Intern",
-    org: "FinTech Solutions",
-    desc: "Developed secure REST APIs for a new payment gateway resulting in a 15% increase in transaction speed.",
-    icon: <Briefcase size={20} />
+    date: "May 2015 - Mar 2024",
+    title: "St. Jude's Public School and Junior College, Kotagiri",
+    desc: <>HSC - 96.8% <br />SSLC - 95.2%</>,
+    icon: <GraduationCap size={20} />
   }
 ]
 
@@ -143,7 +134,7 @@ function App() {
             <span className="gradient-text">Anushri G M</span>
           </h1>
           <p className="hero-subtitle">
-            An AI & Data Science specialist fusing neural networks with high-performance systemic engineering. From generating synthetic realities to fortifying cloud architectures.
+            I focus on building clean, efficient solutions driven by curiosity and precision. With a strong foundation in technology, I approach problems with clarity, continuously learning and refining the way I think, design, and create.
           </p>
           <div className="hero-cta">
             <a href="#projects" className="glow-btn">Deploy Projects</a>
@@ -262,11 +253,6 @@ function App() {
                 </div>
                 <h3 className="project-title">{project.title}</h3>
                 <p className="project-desc">{project.desc}</p>
-                <div className="project-links">
-                  <a href={project.link} className="project-link">
-                    <ExternalLink size={18} /> Live Demo
-                  </a>
-                </div>
               </div>
             </motion.div>
           ))}
@@ -286,7 +272,7 @@ function App() {
             <h2 className="section-title" style={{ textAlign: 'left', marginBottom: '20px' }}>
               Let's Build <br/>Something <span className="gradient-text">Epic.</span>
             </h2>
-            <p>Ready to deploy new ideas in Summer 2026. Whether you have a challenging neural architecture question or just want to network, my inbox is always listening.</p>
+            <p style={{ textAlign: 'left', marginBottom: '40px' }}>Ready to deploy new ideas in Summer 2026. Whether you have a challenging neural architecture question or just want to network, my inbox is always listening.</p>
             
             <div className="social-links">
               <a href="#" className="social-link" title="GitHub">
@@ -299,7 +285,7 @@ function App() {
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932 6.064-6.932zm-1.292 19.49h2.039L6.486 3.24H4.298l13.311 17.403z"/></svg>
               </a>
               <a href="#" className="social-link" title="Email"><Mail size={20} /></a>
-              <a href="/resume.pdf" download className="social-link resume-download" title="Download Resume">
+              <a href="https://www.image2url.com/r2/default/documents/1777009685867-1c1ff59d-a4af-4637-b40c-e846d62a6eae.pdf" download className="social-link resume-download" title="Download Resume">
                 <FileDown size={20} />
               </a>
             </div>

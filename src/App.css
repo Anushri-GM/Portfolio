@@ -13,7 +13,7 @@
   justify-content: space-between;
   align-items: center;
   position: relative;
-  padding: 120px 5% 0;
+  padding: 80px 5% 0;
   max-width: 1300px;
   margin: 0 auto;
   gap: 60px;
@@ -94,7 +94,7 @@
 }
 
 .hero-subtitle {
-  font-size: 1.8rem;
+  font-size: 1.3rem;
   color: var(--text-secondary);
   margin-bottom: 40px;
   max-width: 600px;
@@ -191,8 +191,8 @@
 /* Projects */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
 }
 
 .project-card {
@@ -236,7 +236,7 @@
 }
 
 .project-content {
-  padding: 30px;
+  padding: 22px;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -376,17 +376,23 @@
 
 .contact-info {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .contact-info h3 {
   font-size: 2.5rem;
   margin-bottom: 20px;
+  line-height: 1.2;
 }
 
 .contact-info p {
   color: var(--text-secondary);
   margin-bottom: 40px;
   font-size: 1.1rem;
+  line-height: 1.6;
+  text-align: left;
 }
 
 .social-links {
@@ -468,7 +474,7 @@
   transition: all 0.3s ease;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  background: rgba(5, 5, 5, 0.5);
+  background: rgba(60, 60, 60, 0.6);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
