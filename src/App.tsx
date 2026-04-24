@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, CSSProperties } from 'react'
 import type { Variants } from 'framer-motion'
 import { motion } from 'framer-motion'
 import {
@@ -118,7 +118,7 @@ function App() {
           <a href="#about" className="nav-link">About</a>
           <a href="#projects" className="nav-link">Projects</a>
           <a href="#contact" className="nav-link">Contact</a>
-          <a href="/resume.pdf" target="_blank" className="nav-link resume-link">Resume</a>
+          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="nav-link resume-link">Resume</a>
         </div>
       </nav>
 
@@ -144,7 +144,7 @@ function App() {
         
         <div className="hero-image-wrapper">
            <div className="hero-image-glow"></div>
-           <img src="/profile.png" alt="Anush" className="hero-image" />
+           <img src="/profile.png" alt="Anushri G M profile photo" className="hero-image" />
         </div>
       </section>
 
@@ -161,9 +161,9 @@ function App() {
         </motion.h2>
 
         <div className="timeline">
-          {experience.map((item, index) => (
+          {experience.map((item) => (
             <motion.div 
-              key={index} 
+              key={item.title} 
               className="timeline-item"
               initial="hidden"
               whileInView="visible"
@@ -174,7 +174,7 @@ function App() {
               <div className="timeline-content glass-panel">
                 <span className="timeline-date">{item.date}</span>
                 <h3 className="timeline-title">{item.title}</h3>
-                <p className="timeline-org">{item.org}</p>
+                {item.org && <p className="timeline-org">{item.org}</p>}
                 <p className="timeline-desc">{item.desc}</p>
               </div>
             </motion.div>
@@ -201,16 +201,16 @@ function App() {
           viewport={{ once: true }}
           variants={staggerVar}
         >
-          {skills.map((skill, index) => (
+          {skills.map((skill) => (
             <motion.div 
-              key={index} 
+              key={skill.title} 
               className="skill-card glass-panel"
               variants={fadeUpVar}
               style={{ 
                 '--skill-color': skill.color,
                 '--skill-bg': skill.bg,
                 background: skill.bg 
-              } as any}
+              } as CSSProperties}
             >
               <div className="skill-icon" style={{ color: skill.color }}>{skill.icon}</div>
               <h3 className="skill-title" style={{marginBottom: 0}}>{skill.title}</h3>
@@ -238,9 +238,9 @@ function App() {
           viewport={{ once: true, margin: "-100px" }}
           variants={staggerVar}
         >
-          {projects.map((project, index) => (
+          {projects.map((project) => (
             <motion.div 
-              key={index} 
+              key={project.title} 
               className="project-card glass-panel"
               variants={fadeUpVar}
             >
@@ -253,6 +253,9 @@ function App() {
                 </div>
                 <h3 className="project-title">{project.title}</h3>
                 <p className="project-desc">{project.desc}</p>
+                <a href={project.link} className="project-link">
+                    Live Demo <ExternalLink size={16} />
+                </a>
               </div>
             </motion.div>
           ))}
@@ -304,7 +307,7 @@ function App() {
               <label className="form-label">Message</label>
               <textarea className="form-textarea" placeholder="Hello Anushri, deploying a message concerning..."></textarea>
             </div>
-            <button type="button" className="glow-btn" style={{ width: '100%' }}>Send Message</button>
+            <button type="submit" className="glow-btn" style={{ width: '100%' }}>Send Message</button>
           </form>
         </motion.div>
       </section>
