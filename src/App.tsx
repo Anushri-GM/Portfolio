@@ -88,6 +88,7 @@ const experience = [
 
 function App() {
   const [scrolled, setScrolled] = useState(false)
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
 
   // Handle scroll for navbar and mouse position for cursor
   useEffect(() => {
@@ -98,6 +99,18 @@ function App() {
       window.removeEventListener('scroll', handleScroll)
     }
   }, [])
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
+  };
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    const { name, email, message } = formData;
+    const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=anushritcs@gmail.com&su=Contact from ${name}&body=${message}`;
+    window.open(gmailLink, '_blank');
+  };
 
   return (
     <div className="app-container">
@@ -287,18 +300,18 @@ function App() {
             </div>
           </div>
 
-          <form className="contact-form">
+          <form className="contact-form" onSubmit={handleFormSubmit}>
             <div className="form-group">
               <label className="form-label">Name</label>
-              <input type="text" className="form-input" placeholder="John Doe" />
+              <input type="text" className="form-input" placeholder="John Doe" name="name" value={formData.name} onChange={handleInputChange} />
             </div>
             <div className="form-group">
               <label className="form-label">Email</label>
-              <input type="email" className="form-input" placeholder="john@example.com" />
+              <input type="email" className="form-input" placeholder="john@example.com" name="email" value={formData.email} onChange={handleInputChange} />
             </div>
             <div className="form-group">
               <label className="form-label">Message</label>
-              <textarea className="form-textarea" placeholder="Hello Anushri, deploying a message concerning..."></textarea>
+              <textarea className="form-textarea" placeholder="Hello Anushri, deploying a message concerning..." name="message" value={formData.message} onChange={handleInputChange}></textarea>
             </div>
             <button type="submit" className="glow-btn" style={{ width: '100%' }}>Send Message</button>
           </form>
