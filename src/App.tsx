@@ -227,7 +227,7 @@ function App() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="section-container">
+      <section id="projects" className="section-container projects-section">
         <motion.h2 
           className="section-title"
           initial="hidden"
