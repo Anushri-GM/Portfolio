@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import type { Variants } from 'framer-motion'
-import { motion } from 'framer-motion'
+import { motion, useInView } from 'framer-motion'
 import {
   Code2,
   Database,
@@ -13,8 +13,8 @@ import {
   ExternalLink,
   FileDown
 } from 'lucide-react'
-import ParticleCursor from './ParticleCursor'
 import './App.css'
+import { useRef } from 'react'
 
 // -- Animation Variants --
 const fadeUpVar: Variants = {
@@ -72,9 +72,9 @@ const projects = [
 
 const experience = [
   {
-    date: "Present",
+    date: "June 2026-Dec 2026",
     title: "Internship",
-    org: "Company Name",
+    org: "Zequin Technology Pvt Ltd",
     desc: "",
     icon: <Briefcase size={20} />
   },
@@ -124,16 +124,31 @@ function App() {
     }
   }, [])
 
+  const Section = ({ children, id, className }) => {
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: true, margin: '-100px' });
+
+    return (
+      <section id={id} className={`section-container ${className}`} ref={ref}>
+        <div 
+          className="section-bg"
+          style={{
+            width: isInView ? '100%' : '0%',
+            transition: 'width 0.8s cubic-bezier(0.86, 0, 0.07, 1)'
+          }}
+        ></div>
+        <div className="section-content">
+          {children}
+        </div>
+      </section>
+    );
+  };
+
   return (
     <div className="app-container">
-      {/* Custom Particle Cursor */}
-      <ParticleCursor />
       
       {/* Noise Overlay */}
       <div className="noise-overlay"></div>
-
-      {/* Background Effect */}
-      <div className="bg-mesh"></div>
 
       {/* Navigation */}
       <nav className={`navbar ${scrolled ? 'nav-scrolled' : ''}`}>
@@ -176,7 +191,7 @@ function App() {
       </section>
 
       {/* Experience & Education Section */}
-      <section id="experience" className="section-container section-experience">
+      <Section id="experience" className="section-experience">
         <motion.h2 
           className="section-title"
           initial="hidden"
@@ -207,10 +222,10 @@ function App() {
             </motion.div>
           ))}
         </div>
-      </section>
+      </Section>
 
       {/* About & Skills Section */}
-      <section id="skills" className="section-container section-skills">
+      <Section id="skills" className="section-skills">
         <motion.h2 
           className="section-title"
           initial="hidden"
@@ -239,10 +254,10 @@ function App() {
             </motion.div>
           ))}
         </motion.div>
-      </section>
+      </Section>
 
       {/* Projects Section */}
-      <section id="projects" className="section-container projects-section section-projects">
+      <Section id="projects" className="projects-section section-projects">
         <motion.h2 
           className="section-title"
           initial="hidden"
@@ -279,17 +294,11 @@ function App() {
             </motion.div>
           ))}
         </motion.div>
-      </section>
+      </Section>
 
       {/* Contact Section */}
       <section id="contact" className="section-container section-contact">
-        <motion.div 
-          className="contact-wrapper glass-panel"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeUpVar}
-        >
+        <div className="contact-wrapper glass-panel">
           <div className="contact-info">
             <h2 className="section-title" style={{ textAlign: 'left', marginBottom: '20px' }}>
               Let's Build <br/>Something <span className="gradient-text">Epic.</span>
@@ -324,7 +333,7 @@ function App() {
             </div>
             <button type="submit" className="glow-btn" style={{ width: '100%' }}>Send Message</button>
           </form>
-        </motion.div>
+        </div>
       </section>
 
       {/* Footer Section */}

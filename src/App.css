@@ -148,8 +148,28 @@
 
 /* ===== Section Background Wrappers ===== */
 
+.section-container {
+  position: relative;
+  padding: 80px 5%;
+}
+
+.section-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  z-index: 1;
+}
+
+.section-content {
+  position: relative;
+  z-index: 2;
+}
+
+
 /* Experience & Education - Rich Ecru */
-.section-experience {
+.section-experience .section-bg {
   background: var(--bg-experience);
 }
 
@@ -173,7 +193,7 @@
 }
 
 /* Skills - Sage Mist */
-.section-skills {
+.section-skills .section-bg {
   background: var(--bg-skills);
 }
 
@@ -205,7 +225,7 @@
 }
 
 /* Projects - Smoky Malachite (Dark) */
-.section-projects {
+.section-projects .section-bg {
   background: var(--bg-projects);
 }
 
@@ -250,7 +270,7 @@
 }
 
 /* Contact - Warm Parchment */
-.section-contact {
+.section-contact .section-bg {
   background: var(--bg-contact);
 }
 
@@ -327,8 +347,8 @@
 /* Projects */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
 }
 
 .project-card {
@@ -381,7 +401,7 @@
 }
 
 .project-content {
-  padding: 22px;
+  padding: 20px;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -390,8 +410,8 @@
 .project-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 20px;
+  gap: 8px;
+  margin-bottom: 15px;
 }
 
 .tag {
@@ -408,7 +428,7 @@
 
 .project-title {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   font-weight: 500;
   margin-bottom: 12px;
   color: var(--ecru);
@@ -417,10 +437,10 @@
 
 .project-desc {
   color: rgba(243, 233, 210, 0.75);
-  margin-bottom: 25px;
+  margin-bottom: 20px;
   flex-grow: 1;
   transition: color 0.3s ease;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
 }
 
 .project-links {
