@@ -37,7 +37,7 @@ class Particle {
   }
 
   draw(ctx: CanvasRenderingContext2D) {
-    ctx.fillStyle = 'rgba(166, 156, 144, 0.5)';
+    ctx.fillStyle = 'rgba(46, 139, 116, 0.35)';
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
     ctx.fill();
@@ -100,7 +100,7 @@ export default function NeuralConstellation() {
 
           if (dist < connectionDist) {
             const opacity = 1 - dist / connectionDist;
-            ctx.strokeStyle = `rgba(166, 156, 144, ${opacity * 0.2})`;
+            ctx.strokeStyle = `rgba(46, 139, 116, ${opacity * 0.15})`;
             ctx.lineWidth = 0.5;
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
@@ -116,7 +116,7 @@ export default function NeuralConstellation() {
           const mdist = Math.sqrt(mdx * mdx + mdy * mdy);
           if (mdist < connectionDist) {
             const mOpacity = 1 - mdist / connectionDist;
-            ctx.strokeStyle = `rgba(166, 156, 144, ${mOpacity * 0.5})`;
+            ctx.strokeStyle = `rgba(46, 139, 116, ${mOpacity * 0.4})`;
             ctx.lineWidth = 1;
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);

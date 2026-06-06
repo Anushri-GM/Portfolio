@@ -1,4 +1,4 @@
-import { useState, useEffect, CSSProperties } from 'react'
+import { useState, useEffect } from 'react'
 import type { Variants } from 'framer-motion'
 import { motion } from 'framer-motion'
 import {
@@ -32,18 +32,18 @@ const staggerVar: Variants = {
 
 // -- Data --
 const skills = [
-  { title: "Java", icon: <Terminal />, color: "#60a5fa", bg: "rgba(96, 165, 250, 0.25)" },
-  { title: "Python", icon: <Terminal />, color: "#f87171", bg: "rgba(248, 113, 113, 0.25)" },
-  { title: "C", icon: <Terminal />, color: "#fb923c", bg: "rgba(251, 146, 60, 0.25)" },
-  { title: "HTML", icon: <Code2 />, color: "#38bdf8", bg: "rgba(56, 189, 248, 0.25)" },
-  { title: "React.js", icon: <Code2 />, color: "#94a3b8", bg: "rgba(148, 163, 184, 0.25)" },
-  { title: "Data Structures & Algorithms", icon: <BrainCircuit />, color: "#818cf8", bg: "rgba(129, 140, 248, 0.25)" },
-  { title: "SQLite", icon: <Database />, color: "#2dd4bf", bg: "rgba(45, 212, 191, 0.25)" },
-  { title: "Firebase Firestore", icon: <Database />, color: "#fbbf24", bg: "rgba(251, 191, 36, 0.25)" },
-  { title: "GitHub", icon: <Terminal />, color: "#0ea5e9", bg: "rgba(14, 165, 233, 0.25)" },
-  { title: "Firebase Studio", icon: <Cloud />, color: "#a78bfa", bg: "rgba(167, 139, 250, 0.25)" },
-  { title: "Google GenAI", icon: <BrainCircuit />, color: "#22c55e", bg: "rgba(34, 197, 94, 0.25)" },
-  { title: "Vercel", icon: <Cloud />, color: "#f472b6", bg: "rgba(244, 114, 182, 0.25)" }
+  { title: "Java", icon: <Terminal /> },
+  { title: "Python", icon: <Terminal /> },
+  { title: "C", icon: <Terminal /> },
+  { title: "HTML", icon: <Code2 /> },
+  { title: "React.js", icon: <Code2 /> },
+  { title: "Data Structures & Algorithms", icon: <BrainCircuit /> },
+  { title: "SQLite", icon: <Database /> },
+  { title: "Firebase Firestore", icon: <Database /> },
+  { title: "GitHub", icon: <Terminal /> },
+  { title: "Firebase Studio", icon: <Cloud /> },
+  { title: "Google GenAI", icon: <BrainCircuit /> },
+  { title: "Vercel", icon: <Cloud /> }
 ]
 
 const projects = [
@@ -95,12 +95,30 @@ const experience = [
 
 function App() {
   const [scrolled, setScrolled] = useState(false)
+  const [activeSection, setActiveSection] = useState('home')
 
-  // Handle scroll for navbar and mouse position for cursor
+  // Handle scroll for navbar and active section tracking (Scrollspy)
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50)
-    window.addEventListener('scroll', handleScroll)
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50)
+
+      const sections = ['home', 'experience', 'skills', 'projects', 'contact']
+      const scrollPosition = window.scrollY + 200
+
+      for (const section of sections) {
+        const el = document.getElementById(section)
+        if (el) {
+          const top = el.offsetTop
+          const height = el.offsetHeight
+          if (scrollPosition >= top && scrollPosition < top + height) {
+            setActiveSection(section)
+            break
+          }
+        }
+      }
+    }
     
+    window.addEventListener('scroll', handleScroll)
     return () => {
       window.removeEventListener('scroll', handleScroll)
     }
@@ -120,43 +138,45 @@ function App() {
       {/* Navigation */}
       <nav className={`navbar ${scrolled ? 'nav-scrolled' : ''}`}>
         <div className="nav-links">
-          <a href="#home" className="nav-link">About</a>
-          <a href="#experience" className="nav-link">Experience</a>
-          <a href="#skills" className="nav-link">Skills</a>
-          <a href="#projects" className="nav-link">Projects</a>
-          <a href="#contact" className="nav-link">Contact</a>
+          <a href="#home" className={`nav-link ${activeSection === 'home' ? 'active' : ''}`}>About</a>
+          <a href="#experience" className={`nav-link ${activeSection === 'experience' ? 'active' : ''}`}>Experience</a>
+          <a href="#skills" className={`nav-link ${activeSection === 'skills' ? 'active' : ''}`}>Skills</a>
+          <a href="#projects" className={`nav-link ${activeSection === 'projects' ? 'active' : ''}`}>Projects</a>
+          <a href="#contact" className={`nav-link ${activeSection === 'contact' ? 'active' : ''}`}>Contact</a>
           <a href="https://www.image2url.com/r2/default/documents/1777009685867-1c1ff59d-a4af-4637-b40c-e846d62a6eae.pdf" target="_blank" rel="noopener noreferrer" className="nav-link resume-link">Resume</a>
         </div>
       </nav>
 
       {/* Hero Section */}
       <section id="home" className="hero">
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={fadeUpVar}
-          className="hero-content"
-        >
-          <h1 className="hero-title">
-            <span className="gradient-text">Anushri G M</span>
-          </h1>
-          <p className="hero-subtitle">
-			A passionate technologist driven to build intelligent systems and continuously expand my expertise in AI and modern software development. I focus on transforming ideas into efficient, scalable solutions while learning, experimenting, and evolving with emerging technologies.
-          </p>
-          <div className="hero-cta">
-            <a href="#projects" className="glow-btn">Deploy Projects</a>
-            <a href="#contact" className="btn-secondary">Establish Link</a>
+        <div className="hero-inner">
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={fadeUpVar}
+            className="hero-content"
+          >
+            <h1 className="hero-title">
+              <span className="gradient-text">Anushri G M</span>
+            </h1>
+            <p className="hero-subtitle">
+              Crafting intelligent systems where innovation meets purposeful design. Exploring the intersection of AI, software engineering, and human-centered technology.
+            </p>
+            <div className="hero-cta">
+              <a href="#projects" className="glow-btn">Deploy Projects</a>
+              <a href="#contact" className="btn-secondary">Establish Link</a>
+            </div>
+          </motion.div>
+          
+          <div className="hero-image-wrapper">
+             <div className="hero-image-glow"></div>
+             <img src="/profile.png" alt="Anushri G M profile photo" className="hero-image" />
           </div>
-        </motion.div>
-        
-        <div className="hero-image-wrapper">
-           <div className="hero-image-glow"></div>
-           <img src="/profile.png" alt="Anushri G M profile photo" className="hero-image" />
         </div>
       </section>
 
       {/* Experience & Education Section */}
-      <section id="experience" className="section-container">
+      <section id="experience" className="section-container section-experience">
         <motion.h2 
           className="section-title"
           initial="hidden"
@@ -190,7 +210,7 @@ function App() {
       </section>
 
       {/* About & Skills Section */}
-      <section id="skills" className="section-container">
+      <section id="skills" className="section-container section-skills">
         <motion.h2 
           className="section-title"
           initial="hidden"
@@ -213,13 +233,8 @@ function App() {
               key={skill.title} 
               className="skill-card glass-panel"
               variants={fadeUpVar}
-              style={{ 
-                '--skill-color': skill.color,
-                '--skill-bg': skill.bg,
-                background: skill.bg 
-              } as CSSProperties}
             >
-              <div className="skill-icon" style={{ color: skill.color }}>{skill.icon}</div>
+              <div className="skill-icon">{skill.icon}</div>
               <h3 className="skill-title" style={{marginBottom: 0}}>{skill.title}</h3>
             </motion.div>
           ))}
@@ -227,7 +242,7 @@ function App() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="section-container projects-section">
+      <section id="projects" className="section-container projects-section section-projects">
         <motion.h2 
           className="section-title"
           initial="hidden"
@@ -245,10 +260,10 @@ function App() {
           viewport={{ once: true, margin: "-100px" }}
           variants={staggerVar}
         >
-          {projects.map((project) => (
+          {projects.map((project, index) => (
             <motion.div 
               key={project.title} 
-              className="project-card glass-panel"
+              className={`project-card glass-panel ${index === 1 ? 'project-featured' : ''}`}
               variants={fadeUpVar}
             >
               <img src={project.image} alt={project.title} className="project-img" />
@@ -267,7 +282,7 @@ function App() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="section-container">
+      <section id="contact" className="section-container section-contact">
         <motion.div 
           className="contact-wrapper glass-panel"
           initial="hidden"
@@ -311,6 +326,20 @@ function App() {
           </form>
         </motion.div>
       </section>
+
+      {/* Footer Section */}
+      <footer className="footer">
+        <div className="footer-content">
+          <p>&copy; {new Date().getFullYear()} Anushri G M. All rights reserved.</p>
+          <div className="footer-links">
+            <a href="#home" className="footer-link">About</a>
+            <a href="#experience" className="footer-link">Experience</a>
+            <a href="#skills" className="footer-link">Skills</a>
+            <a href="#projects" className="footer-link">Projects</a>
+            <a href="#contact" className="footer-link">Contact</a>
+          </div>
+        </div>
+      </footer>
 
     </div>
   )
