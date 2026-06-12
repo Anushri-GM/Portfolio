@@ -150,14 +150,13 @@
 
 .section-container {
   position: relative;
-  padding: 80px 5%;
 }
 
 .section-bg {
   position: absolute;
   top: 0;
   left: 0;
-  width: 0%;
+  width: 100%;
   height: 100%;
   z-index: 1;
 }
@@ -165,6 +164,7 @@
 .section-content {
   position: relative;
   z-index: 2;
+  padding: 80px 5%;
 }
 
 
