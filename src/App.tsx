@@ -67,14 +67,14 @@ const projects = [
 	},
 ];
 
-const internship = [
-	{
-		date: 'June 2026-Dec 2026',
-		title: 'Internship',
-		org: 'Zequin Technology Pvt Ltd',
-		desc: '',
-		icon: <Briefcase size={20} />,
-	},
+const experience = [
+    {
+        title: 'Software Engineer Intern at Zequin Technology Pvt Ltd',
+        desc: 'Developed and maintained features for a large-scale web application using React and Node.js. Collaborated with a team of engineers to deliver high-quality code in an agile environment.',
+        tags: ['React', 'Node.js', 'TypeScript', 'PostgreSQL', 'Docker'],
+        image: 'https://www.image2url.com/r2/default/images/1781365406013-e08035ab-457a-4f5b-8b39-9128186223b3.jpeg',
+        link: '#',
+    },
 ];
 
 const education = [
@@ -153,13 +153,6 @@ function App() {
 					</a>
 					<a href="#contact" className={`nav-link ${activeSection === 'contact' ? 'active' : ''}`}>
 						Contact
-					</a>
-					<a
-						href="https://www.image2url.com/r2/default/documents/1777009685867-1c1ff59d-a4af-4637-b40c-e846d62a6eae.pdf"
-						target="_blank"
-						rel="noopener noreferrer"
-						className={`nav-link resume-link ${activeSection === 'projects' || activeSection === 'contact' ? 'projects-visible' : ''}`}>
-						Resume
 					</a>
 				</div>
 			</nav>
@@ -256,26 +249,34 @@ function App() {
 						Experience
 					</motion.h2>
 
-					<div className="timeline">
-						{internship.map(item => (
+					<motion.div
+						className="projects-grid"
+						initial="hidden"
+						whileInView="visible"
+						viewport={{ once: true, margin: '-100px' }}
+						variants={staggerVar}
+					>
+						{experience.map((exp) => (
 							<motion.div
-								key={item.title}
-								className="timeline-item"
-								initial="hidden"
-								whileInView="visible"
-								viewport={{ once: true, margin: '-50px' }}
+								key={exp.title}
+								className="project-card experience-card glass-panel"
 								variants={fadeUpVar}
 							>
-								<div className="timeline-dot"></div>
-								<div className="timeline-content glass-panel">
-									<span className="timeline-date">{item.date}</span>
-									<h3 className="timeline-title">{item.title}</h3>
-									{item.org && <p className="timeline-org">{item.org}</p>}
-									<p className="timeline-desc">{item.desc}</p>
+								<img src={exp.image} alt={exp.title} className="project-img" />
+								<div className="project-content">
+									<div className="project-tags">
+										{exp.tags.map((tag, i) => (
+											<span key={i} className="tag">
+												{tag}
+											</span>
+										))}
+									</div>
+									<h3 className="project-title">{exp.title}</h3>
+									<p className="project-desc">{exp.desc}</p>
 								</div>
 							</motion.div>
 						))}
-					</div>
+					</motion.div>
 				</div>
 			</section>
 

@@ -15,7 +15,7 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  padding: 100px 5% 60px;
+  padding: 80px 5% 60px;
   width: 100%;
   background-image: url('https://www.image2url.com/r2/default/images/1781340457236-267b31eb-84f5-403f-a345-470c294a30fd.jpeg');
   background-size: cover;
@@ -31,7 +31,7 @@
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  gap: 20px;
+  gap: 10px;
   z-index: 10;
 }
 
@@ -49,7 +49,7 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .hero-image {
@@ -106,11 +106,12 @@
 }
 
 .hero-tagline {
-  font-family: 'Inter', sans-serif;
-  font-size: 1.1rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
   color: #F3E8D4;
-  font-weight: 500;
+  font-weight: 600;
   margin-bottom: 20px;
+  letter-spacing: 0.5px;
 }
 
 .hero-subtitle {
@@ -128,6 +129,20 @@
   gap: 20px;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+.hero-cta .social-link {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.hero-cta .social-link svg {
+  margin: 0;
 }
 
 .btn-secondary {
@@ -181,38 +196,43 @@
   color: #F3E8D4;
 }
 
-.section-internship .timeline-content {
-  background: rgba(0, 0, 0, 0.4);
-  border: 1px solid #D1A505;
-  backdrop-filter: blur(10px);
+.section-internship .tag {
+    background: rgba(243, 232, 212, 0.2);
+    color: #F3E8D4;
+    border-color: rgba(243, 232, 212, 0.3);
 }
 
-.section-internship .timeline::before {
-  background: #D1A505;
-  opacity: 0.3;
+.experience-card {
+    grid-column: span 1; 
+	max-width: 500px;
+	margin: 0 auto;
 }
 
-.section-internship .timeline-dot {
-  background: #0F3D35;
-  border-color: #D1A505;
+.experience-card .tag {
+    background: #c8a05b;
+    color: #3a2a0e;
 }
 
-.section-internship .timeline-date {
-  color: #0F3D35;
-  background: #E7C878;
-  border-color: transparent;
+.experience-card:hover {
+    background: linear-gradient(
+        135deg,
+        #0C5E52,
+        #155332,
+        #06362D
+    );
 }
 
-.section-internship .timeline-title {
-  color: #F3E8D4;
+.experience-card:hover .project-title {
+    color: #F3E8D4;
 }
 
-.section-internship .timeline-org {
-  color: #E7C878;
+.experience-card:hover .project-desc {
+    color: #D7D4C6;
 }
 
-.section-internship .timeline-desc {
-  color: #EAD6B8;
+.experience-card:hover .tag {
+    background: rgba(209,165,5,0.15);
+    color: #E7C878;
 }
 
 
@@ -661,6 +681,15 @@
   text-align: left;
 }
 
+.contact-info .gradient-text {
+    position: relative;
+    display: inline-block;
+}
+
+.contact-info .gradient-text::after {
+    content: none;
+}
+
 .social-links {
   display: flex;
   gap: 20px;
@@ -811,7 +840,7 @@
 }
 
 .resume-link {
-  background: #DFC39D;
+  background: #886228;
   color: #06362D !important;
   padding: 6px 16px;
   border-radius: 20px;
@@ -915,5 +944,8 @@
   }
   .hero-image-glow {
     max-width: 200px;
+  }
+  .experience-card {
+    grid-column: span 1;
   }
 }
