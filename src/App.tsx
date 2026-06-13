@@ -6,15 +6,15 @@ import './App.css';
 import { useRef } from 'react';
 
 const fadeUpVar: Variants = {
-	hidden: { opacity: 0, y: 40 },
-	visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: 'easeOut' } },
+	hidden: { opacity: 0, y: 20 },
+	visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
 };
 
 const staggerVar: Variants = {
 	hidden: { opacity: 0 },
 	visible: {
 		opacity: 1,
-		transition: { staggerChildren: 0.2 },
+		transition: { staggerChildren: 0.15 },
 	},
 };
 
@@ -29,8 +29,11 @@ const skills = [
 	{ title: 'Firebase Firestore', icon: <Database /> },
 	{ title: 'GitHub', icon: <Terminal /> },
 	{ title: 'Firebase Studio', icon: <Cloud /> },
-	{ title: 'Google GenAI', icon: <BrainCircuit /> },
+	{ title: 'Machine Learning', icon: <BrainCircuit /> },
+	{ title: 'Generative AI', icon: <BrainCircuit /> },
 	{ title: 'Vercel', icon: <Cloud /> },
+	{ title: 'Numpy', icon: <BrainCircuit /> },
+	{ title: 'Pandas', icon: <BrainCircuit /> },
 ];
 
 const projects = [
@@ -39,6 +42,13 @@ const projects = [
 		desc: 'Developed a full-stack marketplace for local artisans, integrating AI-driven storytelling, multilingual voice navigation, and visual analytics to enhance accessibility and product visibility.',
 		tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Firebase', 'Vertex AI', 'Gemini'],
 		image: 'https://www.image2url.com/r2/default/images/1777008886634-1ffd0294-f6dd-46cf-a91d-ba86a665f82c.png',
+		link: '#',
+	},
+	{
+		title: 'AirGuard AI – Intelligent Engine Leak Detection System',
+		desc: 'Developed an intelligent monitoring system that applies machine learning, anomaly detection, and predictive diagnostics to identify engine air leaks and recommend corrective actions through a real-time analytics dashboard.',
+		tags: ['React', 'TypeScript', 'Tailwind CSS', 'FastAPI', 'Scikit-learn', 'Machine Learning'],
+		image: 'https://www.image2url.com/r2/default/images/1781365406013-e08035ab-457a-4f5b-8b39-9128186223b3.jpeg',
 		link: '#',
 	},
 	{
@@ -148,8 +158,7 @@ function App() {
 						href="https://www.image2url.com/r2/default/documents/1777009685867-1c1ff59d-a4af-4637-b40c-e846d62a6eae.pdf"
 						target="_blank"
 						rel="noopener noreferrer"
-						className="nav-link resume-link"
-					>
+						className={`nav-link resume-link ${activeSection === 'projects' || activeSection === 'contact' ? 'projects-visible' : ''}`}>
 						Resume
 					</a>
 				</div>
@@ -166,23 +175,31 @@ function App() {
 						<h1 className="hero-title">
 							<span className="gradient-text">ANUSHRI G M</span>
 						</h1>
+						<h2 className="hero-tagline">
+							Frontend Developer &bull; AI Enthusiast
+						</h2>
 						<p className="hero-subtitle">
 							Designing and developing intelligent systems at the intersection of AI, software engineering, and human-centered innovation.
 						</p>
 						<div className="hero-cta">
-							<a href="https://github.com/Anushri-GM" className="social-link" title="GitHub">
+							<a href="https://github.com/Anushri-GM" target="_blank" rel="noopener noreferrer" className="social-link" title="GitHub">
 								<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
 									<path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
 								</svg>
 							</a>
-							<a href="https://www.linkedin.com/in/anushri-g-m-221b77350?utm_source=share_via" className="social-link" title="LinkedIn">
+							<a href="https://www.linkedin.com/in/anushri-g-m-221b77350?utm_source=share_via" target="_blank" rel="noopener noreferrer" className="social-link" title="LinkedIn">
 								<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
 									<path d="M22.23 0H1.77C.8 0 0 .77 0 1.72v20.56C0 23.23.8 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.21 0 22.23 0zM7.12 20.45H3.56V9h3.56v11.45zM5.34 7.43c-1.14 0-2.06-.92-2.06-2.06 0-1.14.92-2.06 2.06-2.06 1.14 0 2.06.92 2.06 2.06 0 1.14-.92 2.06-2.06 2.06zm15.11 13.02h-3.56v-5.56c0-1.33-.03-3.03-1.85-3.03-1.85 0-2.13 1.44-2.13 2.93v5.66h-3.56V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29z" />
 								</svg>
 							</a>
-              <a href="https://www.instagram.com/anushri_gm?igsh=NGcxb3NhM29rcmxt" className="social-link" title="Instagram">
+              <a href="https://www.instagram.com/anushri_gm?igsh=NGcxb3NhM29rcmxt" target="_blank" rel="noopener noreferrer" className="social-link" title="Instagram">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.148 3.225-1.664 4.771-4.919 4.919-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.07-1.646-.07-4.85s.012-3.584.07-4.85c.148-3.225 1.664-4.771 4.919-4.919 1.266-.058 1.646.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.059 1.689.073 4.948.073s3.667-.014 4.947-.072c4.358-.2 6.78-2.618 6.98-6.98.059-1.281.073-1.689-.073-4.948s-.014-3.667-.072-4.947c-.2-4.358-2.618-6.78-6.98-6.98-1.281-.059-1.689-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.441 1.441 1.441 1.441-.645 1.441-1.441-.645-1.44-1.441-1.44z"/></svg>
               </a>
+							<a href="https://mail.google.com/mail/?view=cm&fs=1&to=anushritcs@gmail.com" target="_blank" rel="noopener noreferrer" className="social-link" title="Gmail">
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+									<path d="M22,6C22,4.9,21.1,4,20,4H4C2.9,4,2,4.9,2,6v12c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2V6z M20,6l-8,5L4,6H20z M20,18H4V8l8,5 l8-5V18z"/>
+								</svg>
+							</a>
 						</div>
 					</motion.div>
 
@@ -234,6 +251,7 @@ function App() {
 						whileInView="visible"
 						viewport={{ once: true }}
 						variants={fadeUpVar}
+						style={{ fontWeight: 'bold' }}
 					>
 						Experience
 					</motion.h2>
@@ -270,6 +288,7 @@ function App() {
 						whileInView="visible"
 						viewport={{ once: true }}
 						variants={fadeUpVar}
+						style={{ fontWeight: 'bold' }}
 					>
 						My Expertise
 					</motion.h2>
@@ -302,6 +321,7 @@ function App() {
 						whileInView="visible"
 						viewport={{ once: true }}
 						variants={fadeUpVar}
+						style={{ fontWeight: 'bold' }}
 					>
 						Featured Projects
 					</motion.h2>
@@ -313,10 +333,10 @@ function App() {
 						viewport={{ once: true, margin: '-100px' }}
 						variants={staggerVar}
 					>
-						{projects.map((project, index) => (
+						{projects.map((project) => (
 							<motion.div
 								key={project.title}
-								className={`project-card glass-panel ${index === 1 ? 'project-featured' : ''}`}
+								className="project-card glass-panel"
 								variants={fadeUpVar}
 							>
 								<img src={project.image} alt={project.title} className="project-img" />
@@ -350,21 +370,13 @@ function App() {
 								Open to collaborating on bold ideas and intelligent systems—whether it’s solving complex AI challenges or simply
 								connecting, I’m always ready to explore what’s next.
 							</p>
-
 							<div className="social-links">
-								<a href="https://github.com/Anushri-GM" className="social-link" title="GitHub">
+								<a href="https://mail.google.com/mail/?view=cm&fs=1&to=anushritcs@gmail.com" target="_blank" rel="noopener noreferrer" className="social-link" title="Gmail">
 									<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-										<path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+										<path d="M22,6C22,4.9,21.1,4,20,4H4C2.9,4,2,4.9,2,6v12c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2V6z M20,6l-8,5L4,6H20z M20,18H4V8l8,5 l8-5V18z"/>
 									</svg>
+									anushritcs@gmail.com
 								</a>
-								<a href="https://www.linkedin.com/in/anushri-g-m-221b77350?utm_source=share_via" className="social-link" title="LinkedIn">
-									<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-										<path d="M22.23 0H1.77C.8 0 0 .77 0 1.72v20.56C0 23.23.8 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.21 0 22.23 0zM7.12 20.45H3.56V9h3.56v11.45zM5.34 7.43c-1.14 0-2.06-.92-2.06-2.06 0-1.14.92-2.06 2.06-2.06 1.14 0 2.06.92 2.06 2.06 0 1.14-.92 2.06-2.06 2.06zm15.11 13.02h-3.56v-5.56c0-1.33-.03-3.03-1.85-3.03-1.85 0-2.13 1.44-2.13 2.93v5.66h-3.56V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29z" />
-									</svg>
-								</a>
-							  <a href="https://www.instagram.com/anushri_gm?igsh=NGcxb3NhM29rcmxt" className="social-link" title="Instagram">
-								<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.148 3.225-1.664 4.771-4.919 4.919-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.07-1.646-.07-4.85s.012-3.584.07-4.85c.148-3.225 1.664-4.771 4.919-4.919 1.266-.058 1.646.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.059 1.689.073 4.948.073s3.667-.014 4.947-.072c4.358-.2 6.78-2.618 6.98-6.98.059-1.281.073-1.689-.073-4.948s-.014-3.667-.072-4.947c-.2-4.358-2.618-6.78-6.98-6.98-1.281-.059-1.689-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.441 1.441 1.441 1.441-.645 1.441-1.441-.645-1.44-1.441-1.44z"/></svg>
-							  </a>
 								<a
 									href="https://www.image2url.com/r2/default/documents/1777009685867-1c1ff59d-a4af-4637-b40c-e846d62a6eae.pdf"
 									target="_blank"
@@ -373,27 +385,10 @@ function App() {
 									title="Download Resume"
 								>
 									<FileDown size={20} />
+									Download Resume
 								</a>
 							</div>
 						</div>
-
-						<form className="contact-form">
-							<div className="form-group">
-								<label className="form-label">Name</label>
-								<input type="text" className="form-input" placeholder="Enter your name..." />
-							</div>
-							<div className="form-group">
-								<label className="form-label">Email</label>
-								<input type="email" className="form-input" placeholder="Enter your email..." />
-							</div>
-							<div className="form-group">
-								<label className="form-label">Message</label>
-								<textarea className="form-textarea" placeholder="Enter your message..."></textarea>
-							</div>
-							<button type="submit" className="glow-btn" style={{ width: '100%' }}>
-								Send Message
-							</button>
-						</form>
 					</div>
 				</div>
 			</section>
