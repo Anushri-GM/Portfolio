@@ -118,24 +118,6 @@ function App() {
 		};
 	}, []);
 
-	const Section = ({ children, id, className }) => {
-		const ref = useRef(null);
-		const isInView = useInView(ref, { once: true, margin: '-100px' });
-
-		return (
-			<section id={id} className={`section-container ${className}`} ref={ref}>
-				<div
-					className="section-bg"
-					style={{
-						width: isInView ? '100%' : '0%',
-						transition: 'width 0.8s cubic-bezier(0.86, 0, 0.07, 1)',
-					}}
-				></div>
-				<div className="section-content">{children}</div>
-			</section>
-		);
-	};
-
 	return (
 		<div className="app-container">
 			{/* Noise Overlay */}
@@ -199,7 +181,7 @@ function App() {
 								</svg>
 							</a>
               <a href="https://www.instagram.com/anushri_gm?igsh=NGcxb3NhM29rcmxt" className="social-link" title="Instagram">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.148 3.225-1.664 4.771-4.919 4.919-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.07-1.646-.07-4.85s.012-3.584.07-4.85c.148-3.225 1.664-4.771 4.919-4.919 1.266-.058 1.646.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.059 1.689.073 4.948.073s3.667-.014 4.947-.072c4.358-.2 6.78-2.618 6.98-6.98.059-1.281.073-1.689.073-4.948s-.014-3.667-.072-4.947c-.2-4.358-2.618-6.78-6.98-6.98-1.281-.059-1.689-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.441 1.441 1.441 1.441-.645 1.441-1.441-.645-1.44-1.441-1.44z"/></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.148 3.225-1.664 4.771-4.919 4.919-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.07-1.646-.07-4.85s.012-3.584.07-4.85c.148-3.225 1.664-4.771 4.919-4.919 1.266-.058 1.646.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.059 1.689.073 4.948.073s3.667-.014 4.947-.072c4.358-.2 6.78-2.618 6.98-6.98.059-1.281.073-1.689-.073-4.948s-.014-3.667-.072-4.947c-.2-4.358-2.618-6.78-6.98-6.98-1.281-.059-1.689-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.441 1.441 1.441 1.441-.645 1.441-1.441-.645-1.44-1.441-1.44z"/></svg>
               </a>
 						</div>
 					</motion.div>
@@ -208,201 +190,211 @@ function App() {
 			</section>
 
 			{/* Education Section */}
-			<Section id="education" className="section-experience">
-				<motion.h2
-					className="section-title"
-					initial="hidden"
-					whileInView="visible"
-					viewport={{ once: true }}
-					variants={fadeUpVar}
-				>
-					Education
-				</motion.h2>
+            <section id="education" className="section-container section-education">
+                <div className="section-content">
+                    <motion.h2
+                        className="section-title"
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        variants={fadeUpVar}
+                    >
+                        Education
+                    </motion.h2>
 
-				<div className="timeline">
-					{education.map(item => (
-						<motion.div
-							key={item.title}
-							className="timeline-item"
-							initial="hidden"
-							whileInView="visible"
-							viewport={{ once: true, margin: '-50px' }}
-							variants={fadeUpVar}
-						>
-							<div className="timeline-dot"></div>
-							<div className="timeline-content glass-panel">
-								<span className="timeline-date">{item.date}</span>
-								<h3 className="timeline-title">{item.title}</h3>
-								{item.org && <p className="timeline-org">{item.org}</p>}
-								<p className="timeline-desc">{item.desc}</p>
-							</div>
-						</motion.div>
-					))}
-				</div>
-			</Section>
+                    <div className="timeline">
+                        {education.map(item => (
+                            <motion.div
+                                key={item.title}
+                                className="timeline-item"
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{ once: true, margin: '-50px' }}
+                                variants={fadeUpVar}
+                            >
+                                <div className="timeline-dot"></div>
+                                <div className="timeline-content glass-panel">
+                                    <span className="timeline-date">{item.date}</span>
+                                    <h3 className="timeline-title">{item.title}</h3>
+                                    {item.org && <p className="timeline-org">{item.org}</p>}
+                                    <p className="timeline-desc">{item.desc}</p>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
+            </section>
 
 			{/* Experience Section */}
-			<Section id="experience" className="section-internship">
-				<motion.h2
-					className="section-title"
-					initial="hidden"
-					whileInView="visible"
-					viewport={{ once: true }}
-					variants={fadeUpVar}
-				>
-					Experience
-				</motion.h2>
+			<section id="experience" className="section-container section-internship">
+				<div className="section-content">
+					<motion.h2
+						className="section-title"
+						initial="hidden"
+						whileInView="visible"
+						viewport={{ once: true }}
+						variants={fadeUpVar}
+					>
+						Experience
+					</motion.h2>
 
-				<div className="timeline">
-					{internship.map(item => (
-						<motion.div
-							key={item.title}
-							className="timeline-item"
-							initial="hidden"
-							whileInView="visible"
-							viewport={{ once: true, margin: '-50px' }}
-							variants={fadeUpVar}
-						>
-							<div className="timeline-dot"></div>
-							<div className="timeline-content glass-panel">
-								<span className="timeline-date">{item.date}</span>
-								<h3 className="timeline-title">{item.title}</h3>
-								{item.org && <p className="timeline-org">{item.org}</p>}
-								<p className="timeline-desc">{item.desc}</p>
-							</div>
-						</motion.div>
-					))}
+					<div className="timeline">
+						{internship.map(item => (
+							<motion.div
+								key={item.title}
+								className="timeline-item"
+								initial="hidden"
+								whileInView="visible"
+								viewport={{ once: true, margin: '-50px' }}
+								variants={fadeUpVar}
+							>
+								<div className="timeline-dot"></div>
+								<div className="timeline-content glass-panel">
+									<span className="timeline-date">{item.date}</span>
+									<h3 className="timeline-title">{item.title}</h3>
+									{item.org && <p className="timeline-org">{item.org}</p>}
+									<p className="timeline-desc">{item.desc}</p>
+								</div>
+							</motion.div>
+						))}
+					</div>
 				</div>
-			</Section>
+			</section>
 
 			{/* About & Skills Section */}
-			<Section id="skills" className="section-skills">
-				<motion.h2
-					className="section-title"
-					initial="hidden"
-					whileInView="visible"
-					viewport={{ once: true }}
-					variants={fadeUpVar}
-				>
-					My Expertise
-				</motion.h2>
+			<section id="skills" className="section-container section-skills">
+				<div className="section-content">
+					<motion.h2
+						className="section-title"
+						initial="hidden"
+						whileInView="visible"
+						viewport={{ once: true }}
+						variants={fadeUpVar}
+					>
+						My Expertise
+					</motion.h2>
 
-				<motion.div
-					className="skills-grid"
-					initial="hidden"
-					whileInView="visible"
-					viewport={{ once: true }}
-					variants={staggerVar}
-				>
-					{skills.map(skill => (
-						<motion.div key={skill.title} className="skill-card glass-panel" variants={fadeUpVar}>
-							<div className="skill-icon">{skill.icon}</div>
-							<h3 className="skill-title" style={{ marginBottom: 0 }}>
-								{skill.title}
-							</h3>
-						</motion.div>
-					))}
-				</motion.div>
-			</Section>
+					<motion.div
+						className="skills-grid"
+						initial="hidden"
+						whileInView="visible"
+						viewport={{ once: true }}
+						variants={staggerVar}
+					>
+						{skills.map(skill => (
+							<motion.div key={skill.title} className="skill-card glass-panel" variants={fadeUpVar}>
+								<div className="skill-icon">{skill.icon}</div>
+								<h3 className="skill-title" style={{ marginBottom: 0 }}>
+									{skill.title}
+								</h3>
+							</motion.div>
+						))}
+					</motion.div>
+				</div>
+			</section>
 
 			{/* Projects Section */}
-			<Section id="projects" className="projects-section section-projects">
-				<motion.h2
-					className="section-title"
-					initial="hidden"
-					whileInView="visible"
-					viewport={{ once: true }}
-					variants={fadeUpVar}
-				>
-					Featured Projects
-				</motion.h2>
+			<section id="projects" className="projects-section section-projects">
+				<div class="section-content">
+					<motion.h2
+						className="section-title"
+						initial="hidden"
+						whileInView="visible"
+						viewport={{ once: true }}
+						variants={fadeUpVar}
+					>
+						Featured Projects
+					</motion.h2>
 
-				<motion.div
-					className="projects-grid"
-					initial="hidden"
-					whileInView="visible"
-					viewport={{ once: true, margin: '-100px' }}
-					variants={staggerVar}
-				>
-					{projects.map((project, index) => (
-						<motion.div
-							key={project.title}
-							className={`project-card glass-panel ${index === 1 ? 'project-featured' : ''}`}
-							variants={fadeUpVar}
-						>
-							<img src={project.image} alt={project.title} className="project-img" />
-							<div className="project-content">
-								<div className="project-tags">
-									{project.tags.map((tag, i) => (
-										<span key={i} className="tag">
-											{tag}
-										</span>
-									))}
+					<motion.div
+						className="projects-grid"
+						initial="hidden"
+						whileInView="visible"
+						viewport={{ once: true, margin: '-100px' }}
+						variants={staggerVar}
+					>
+						{projects.map((project, index) => (
+							<motion.div
+								key={project.title}
+								className={`project-card glass-panel ${index === 1 ? 'project-featured' : ''}`}
+								variants={fadeUpVar}
+							>
+								<img src={project.image} alt={project.title} className="project-img" />
+								<div className="project-content">
+									<div className="project-tags">
+										{project.tags.map((tag, i) => (
+											<span key={i} className="tag">
+												{tag}
+											</span>
+										))}
+									</div>
+									<h3 className="project-title">{project.title}</h3>
+									<p className="project-desc">{project.desc}</p>
 								</div>
-								<h3 className="project-title">{project.title}</h3>
-								<p className="project-desc">{project.desc}</p>
-							</div>
-						</motion.div>
-					))}
-				</motion.div>
-			</Section>
+							</motion.div>
+						))}
+					</motion.div>
+				</div>
+			</section>
 
 			{/* Contact Section */}
 			<section id="contact" className="section-container section-contact">
-				<div className="contact-wrapper glass-panel">
-					<div className="contact-info">
-						<h2 className="section-title" style={{ textAlign: 'left', marginBottom: '20px' }}>
-							Let's Build <br />
-							Something <span className="gradient-text">Epic.</span>
-						</h2>
-						<p style={{ textAlign: 'left', marginBottom: '40px' }}>
-							Open to collaborating on bold ideas and intelligent systems—whether it’s solving complex AI challenges or simply
-							connecting, I’m always ready to explore what’s next.
-						</p>
+				<div class="section-content">
+					<div className="contact-wrapper glass-panel">
+						<div className="contact-info">
+							<h2 className="section-title" style={{ textAlign: 'left', marginBottom: '20px' }}>
+								Let's Build <br />
+								Something <span className="gradient-text">Epic.</span>
+							</h2>
+							<p style={{ textAlign: 'left', marginBottom: '40px' }}>
+								Open to collaborating on bold ideas and intelligent systems—whether it’s solving complex AI challenges or simply
+								connecting, I’m always ready to explore what’s next.
+							</p>
 
-						<div className="social-links">
-							<a href="https://github.com/Anushri-GM" className="social-link" title="GitHub">
-								<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-									<path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-								</svg>
-							</a>
-							<a href="https://www.linkedin.com/in/anushri-g-m-221b77350?utm_source=share_via" className="social-link" title="LinkedIn">
-								<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-									<path d="M22.23 0H1.77C.8 0 0 .77 0 1.72v20.56C0 23.23.8 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.21 0 22.23 0zM7.12 20.45H3.56V9h3.56v11.45zM5.34 7.43c-1.14 0-2.06-.92-2.06-2.06 0-1.14.92-2.06 2.06-2.06 1.14 0 2.06.92 2.06 2.06 0 1.14-.92 2.06-2.06 2.06zm15.11 13.02h-3.56v-5.56c0-1.33-.03-3.03-1.85-3.03-1.85 0-2.13 1.44-2.13 2.93v5.66h-3.56V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29z" />
-								</svg>
-							</a>
-              <a href="https://www.instagram.com/anushri_gm?igsh=NGcxb3NhM29rcmxt" className="social-link" title="Instagram">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.148 3.225-1.664 4.771-4.919 4.919-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.07-1.646-.07-4.85s.012-3.584.07-4.85c.148-3.225 1.664-4.771 4.919-4.919 1.266-.058 1.646.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.059 1.689.073 4.948.073s3.667-.014 4.947-.072c4.358-.2 6.78-2.618 6.98-6.98.059-1.281.073-1.689.073-4.948s-.014-3.667-.072-4.947c-.2-4.358-2.618-6.78-6.98-6.98-1.281-.059-1.689-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.441 1.441 1.441 1.441-.645 1.441-1.441-.645-1.44-1.441-1.44z"/></svg>
-              </a>
-							<a
-								href="https://www.image2url.com/r2/default/documents/1777009685867-1c1ff59d-a4af-4637-b40c-e846d62a6eae.pdf"
-								target="_blank"
-								rel="noopener noreferrer"
-								className="social-link"
-								title="Download Resume"
-							>
-								<FileDown size={20} />
-							</a>
+							<div className="social-links">
+								<a href="https://github.com/Anushri-GM" className="social-link" title="GitHub">
+									<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+										<path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+									</svg>
+								</a>
+								<a href="https://www.linkedin.com/in/anushri-g-m-221b77350?utm_source=share_via" className="social-link" title="LinkedIn">
+									<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+										<path d="M22.23 0H1.77C.8 0 0 .77 0 1.72v20.56C0 23.23.8 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.21 0 22.23 0zM7.12 20.45H3.56V9h3.56v11.45zM5.34 7.43c-1.14 0-2.06-.92-2.06-2.06 0-1.14.92-2.06 2.06-2.06 1.14 0 2.06.92 2.06 2.06 0 1.14-.92 2.06-2.06 2.06zm15.11 13.02h-3.56v-5.56c0-1.33-.03-3.03-1.85-3.03-1.85 0-2.13 1.44-2.13 2.93v5.66h-3.56V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29z" />
+									</svg>
+								</a>
+							  <a href="https://www.instagram.com/anushri_gm?igsh=NGcxb3NhM29rcmxt" className="social-link" title="Instagram">
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.148 3.225-1.664 4.771-4.919 4.919-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.07-1.646-.07-4.85s.012-3.584.07-4.85c.148-3.225 1.664-4.771 4.919-4.919 1.266-.058 1.646.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.059 1.689.073 4.948.073s3.667-.014 4.947-.072c4.358-.2 6.78-2.618 6.98-6.98.059-1.281.073-1.689-.073-4.948s-.014-3.667-.072-4.947c-.2-4.358-2.618-6.78-6.98-6.98-1.281-.059-1.689-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.441 1.441 1.441 1.441-.645 1.441-1.441-.645-1.44-1.441-1.44z"/></svg>
+							  </a>
+								<a
+									href="https://www.image2url.com/r2/default/documents/1777009685867-1c1ff59d-a4af-4637-b40c-e846d62a6eae.pdf"
+									target="_blank"
+									rel="noopener noreferrer"
+									className="social-link"
+									title="Download Resume"
+								>
+									<FileDown size={20} />
+								</a>
+							</div>
 						</div>
+
+						<form className="contact-form">
+							<div className="form-group">
+								<label className="form-label">Name</label>
+								<input type="text" className="form-input" placeholder="Enter your name..." />
+							</div>
+							<div className="form-group">
+								<label className="form-label">Email</label>
+								<input type="email" className="form-input" placeholder="Enter your email..." />
+							</div>
+							<div className="form-group">
+								<label className="form-label">Message</label>
+								<textarea className="form-textarea" placeholder="Enter your message..."></textarea>
+							</div>
+							<button type="submit" className="glow-btn" style={{ width: '100%' }}>
+								Send Message
+							</button>
+						</form>
 					</div>
-
-					<form className="contact-form">
-						<div className="form-group">
-							<label className="form-label">Name</label>
-							<input type="text" className="form-input" placeholder="Enter your name..." />
-						</div>
-						<div className="form-group">
-							<label className="form-label">Email</label>
-							<input type="email" className="form-input" placeholder="Enter your email..." />
-						</div>
-						<div className="form-group">
-							<label className="form-label">Message</label>
-							<textarea className="form-textarea" placeholder="Enter your message..."></textarea>
-						</div>
-						<button type="submit" className="glow-btn" style={{ width: '100%' }}>
-							Send Message
-						</button>
-					</form>
 				</div>
 			</section>
 
