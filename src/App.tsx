@@ -57,7 +57,7 @@ const projects = [
 	},
 ];
 
-const experience = [
+const internship = [
 	{
 		date: 'June 2026-Dec 2026',
 		title: 'Internship',
@@ -65,6 +65,9 @@ const experience = [
 		desc: '',
 		icon: <Briefcase size={20} />,
 	},
+];
+
+const education = [
 	{
 		date: 'Aug 2024 - May 2028',
 		title: 'PSG Institute of Technology and Applied Research, Coimbatore',
@@ -93,7 +96,7 @@ function App() {
 		const handleScroll = () => {
 			setScrolled(window.scrollY > 50);
 
-			const sections = ['home', 'experience', 'skills', 'projects', 'contact'];
+			const sections = ['home', 'education', 'experience', 'skills', 'projects', 'contact'];
 			const scrollPosition = window.scrollY + 200;
 
 			for (const section of sections) {
@@ -144,6 +147,9 @@ function App() {
 					<a href="#home" className={`nav-link ${activeSection === 'home' ? 'active' : ''}`}>
 						About
 					</a>
+					<a href="#education" className={`nav-link ${activeSection === 'education' ? 'active' : ''}`}>
+						Education
+					</a>
 					<a href="#experience" className={`nav-link ${activeSection === 'experience' ? 'active' : ''}`}>
 						Experience
 					</a>
@@ -170,13 +176,16 @@ function App() {
 			{/* Hero Section */}
 			<section id="home" className="hero">
 				<div className="hero-inner">
+					<div className="hero-image-wrapper">
+						<div className="hero-image-glow"></div>
+						<img src="/profile.png" alt="Anushri G M profile photo" className="hero-image" />
+					</div>
 					<motion.div initial="hidden" animate="visible" variants={fadeUpVar} className="hero-content">
 						<h1 className="hero-title">
-							<span className="gradient-text">Anushri G M</span>
+							<span className="gradient-text">ANUSHRI G M</span>
 						</h1>
 						<p className="hero-subtitle">
-							Crafting intelligent systems where innovation meets purposeful design. Exploring the intersection of AI, software
-							engineering, and human-centered technology.
+							Designing and developing intelligent systems at the intersection of AI, software engineering, and human-centered innovation.
 						</p>
 						<div className="hero-cta">
 							<a href="https://github.com/Anushri-GM" className="social-link" title="GitHub">
@@ -189,18 +198,17 @@ function App() {
 									<path d="M22.23 0H1.77C.8 0 0 .77 0 1.72v20.56C0 23.23.8 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.21 0 22.23 0zM7.12 20.45H3.56V9h3.56v11.45zM5.34 7.43c-1.14 0-2.06-.92-2.06-2.06 0-1.14.92-2.06 2.06-2.06 1.14 0 2.06.92 2.06 2.06 0 1.14-.92 2.06-2.06 2.06zm15.11 13.02h-3.56v-5.56c0-1.33-.03-3.03-1.85-3.03-1.85 0-2.13 1.44-2.13 2.93v5.66h-3.56V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29z" />
 								</svg>
 							</a>
+              <a href="https://www.instagram.com/anushri_gm?igsh=NGcxb3NhM29rcmxt" className="social-link" title="Instagram">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.148 3.225-1.664 4.771-4.919 4.919-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.07-1.646-.07-4.85s.012-3.584.07-4.85c.148-3.225 1.664-4.771 4.919-4.919 1.266-.058 1.646.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.059 1.689.073 4.948.073s3.667-.014 4.947-.072c4.358-.2 6.78-2.618 6.98-6.98.059-1.281.073-1.689.073-4.948s-.014-3.667-.072-4.947c-.2-4.358-2.618-6.78-6.98-6.98-1.281-.059-1.689-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.441 1.441 1.441 1.441-.645 1.441-1.441-.645-1.44-1.441-1.44z"/></svg>
+              </a>
 						</div>
 					</motion.div>
 
-					<div className="hero-image-wrapper">
-						<div className="hero-image-glow"></div>
-						<img src="/profile.png" alt="Anushri G M profile photo" className="hero-image" />
-					</div>
 				</div>
 			</section>
 
-			{/* Experience & Education Section */}
-			<Section id="experience" className="section-experience">
+			{/* Education Section */}
+			<Section id="education" className="section-experience">
 				<motion.h2
 					className="section-title"
 					initial="hidden"
@@ -208,11 +216,45 @@ function App() {
 					viewport={{ once: true }}
 					variants={fadeUpVar}
 				>
-					Experience & Education
+					Education
 				</motion.h2>
 
 				<div className="timeline">
-					{experience.map(item => (
+					{education.map(item => (
+						<motion.div
+							key={item.title}
+							className="timeline-item"
+							initial="hidden"
+							whileInView="visible"
+							viewport={{ once: true, margin: '-50px' }}
+							variants={fadeUpVar}
+						>
+							<div className="timeline-dot"></div>
+							<div className="timeline-content glass-panel">
+								<span className="timeline-date">{item.date}</span>
+								<h3 className="timeline-title">{item.title}</h3>
+								{item.org && <p className="timeline-org">{item.org}</p>}
+								<p className="timeline-desc">{item.desc}</p>
+							</div>
+						</motion.div>
+					))}
+				</div>
+			</Section>
+
+			{/* Experience Section */}
+			<Section id="experience" className="section-internship">
+				<motion.h2
+					className="section-title"
+					initial="hidden"
+					whileInView="visible"
+					viewport={{ once: true }}
+					variants={fadeUpVar}
+				>
+					Experience
+				</motion.h2>
+
+				<div className="timeline">
+					{internship.map(item => (
 						<motion.div
 							key={item.title}
 							className="timeline-item"
@@ -330,7 +372,7 @@ function App() {
 								</svg>
 							</a>
               <a href="https://www.instagram.com/anushri_gm?igsh=NGcxb3NhM29rcmxt" className="social-link" title="Instagram">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.148 3.225-1.664 4.771-4.919 4.919-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.07-1.646-.07-4.85s.012-3.584.07-4.85c.148-3.225 1.664-4.771 4.919-4.919 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.059 1.689.073 4.948.073s3.667-.014 4.947-.072c4.358-.2 6.78-2.618 6.98-6.98.059-1.281.073-1.689.073-4.948s-.014-3.667-.072-4.947c-.2-4.358-2.618-6.78-6.98-6.98-1.281-.059-1.689-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.441 1.441 1.441 1.441-.645 1.441-1.441-.645-1.44-1.441-1.44z"/></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.148 3.225-1.664 4.771-4.919 4.919-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.07-1.646-.07-4.85s.012-3.584.07-4.85c.148-3.225 1.664-4.771 4.919-4.919 1.266-.058 1.646.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.059 1.689.073 4.948.073s3.667-.014 4.947-.072c4.358-.2 6.78-2.618 6.98-6.98.059-1.281.073-1.689.073-4.948s-.014-3.667-.072-4.947c-.2-4.358-2.618-6.78-6.98-6.98-1.281-.059-1.689-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.441 1.441 1.441 1.441-.645 1.441-1.441-.645-1.44-1.441-1.44z"/></svg>
               </a>
 							<a
 								href="https://www.image2url.com/r2/default/documents/1777009685867-1c1ff59d-a4af-4637-b40c-e846d62a6eae.pdf"

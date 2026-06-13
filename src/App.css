@@ -16,30 +16,27 @@
   position: relative;
   padding: 120px 5% 80px;
   width: 100%;
-  background: radial-gradient(
-    circle at top left,
-    #167563 0%,
-    #0E5F4F 35%,
-    #123B35 100%
-  );
+  background-image: url('https://www.image2url.com/r2/default/images/1781340457236-267b31eb-84f5-403f-a345-470c294a30fd.jpeg');
+  background-size: cover;
+  background-position: center;
   border-bottom: 1px solid rgba(184, 138, 82, 0.15);
 }
 
 .hero-inner {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  gap: 60px;
+  gap: 10px;
   z-index: 10;
 }
 
 .hero-content {
   flex: 1.2;
-  text-align: left;
+  text-align: center;
 }
 
 .hero-image-wrapper {
@@ -52,7 +49,7 @@
 
 .hero-image {
   width: 100%;
-  max-width: 380px;
+  max-width: 350px;
   aspect-ratio: 1;
   height: auto;
   object-fit: cover;
@@ -90,9 +87,9 @@
 
 .hero-title {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 5rem;
-  font-weight: 300;
-  margin-bottom: 20px;
+  font-size: 5.5rem;
+  font-weight: 700;
+  margin-bottom: 10px;
   line-height: 1.1;
 }
 
@@ -100,14 +97,15 @@
   background: none;
   -webkit-text-fill-color: initial;
   color: #C59B64; /* Rich engraved brass */
+  font-family: 'Cormorant Garamond', serif;
 }
 
 .hero-subtitle {
   font-family: 'Inter', sans-serif;
   font-size: 1.2rem;
-  color: var(--text-light);
+  color: var(--ecru);
   opacity: 0.9;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   max-width: 600px;
   line-height: 1.7;
 }
@@ -116,7 +114,7 @@
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: center;
 }
 
 .btn-secondary {
@@ -167,27 +165,74 @@
   padding: 80px 5%;
 }
 
+/* Internship Section */
+.section-internship .section-bg {
+  background: radial-gradient(
+    circle at top left,
+    #167563 0%,
+    #0E5F4F 35%,
+    #123B35 100%
+  );
+}
 
-/* Experience & Education - Rich Ecru */
-.section-experience .section-bg {
+.section-internship .section-title {
+  color: var(--ecru);
+}
+
+.section-internship .timeline-content {
+  background: var(--card-projects);
+  border-color: rgba(184, 138, 82, 0.15);
+}
+
+.section-internship .timeline::before {
+  background: var(--brass);
+  opacity: 0.3;
+}
+
+.section-internship .timeline-dot {
+  background: var(--bg-projects);
+  border-color: var(--brass);
+}
+
+.section-internship .timeline-date {
+    color: var(--ecru);
+    background: rgba(243, 233, 210, 0.08);
+    border-color: rgba(243, 233, 210, 0.15);
+}
+
+.section-internship .timeline-title {
+    color: var(--ecru);
+}
+
+.section-internship .timeline-org {
+    color: var(--brass);
+}
+
+.section-internship .timeline-desc {
+    color: rgba(243, 233, 210, 0.75);
+}
+
+
+/* Education - Rich Ecru */
+.section-education .section-bg {
   background: var(--bg-experience);
 }
 
-.section-experience .section-title {
+.section-education .section-title {
   color: var(--malachite);
 }
 
-.section-experience .timeline-content {
+.section-education .timeline-content {
   background: var(--card-experience);
   border-color: rgba(14, 95, 79, 0.12);
 }
 
-.section-experience .timeline::before {
+.section-education .timeline::before {
   background: var(--malachite);
   opacity: 0.25;
 }
 
-.section-experience .timeline-dot {
+.section-education .timeline-dot {
   background: var(--card-experience);
   border-color: var(--brass);
 }
@@ -606,19 +651,19 @@
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: rgba(243, 233, 210, 0.1);
-  border: 1px solid rgba(243, 233, 210, 0.2);
-  color: var(--ecru);
+  background: #FFD700;
+  border: 1px solid #FFD700;
+  color: #123B35;
   font-size: 1.5rem;
   transition: all 0.3s ease;
 }
 
 .social-link:hover {
-  background: var(--brass);
-  border-color: var(--brass);
-  color: var(--text-light);
+  background: #DAA520;
+  border-color: #DAA520;
+  color: #FFFFFF;
   transform: translateY(-5px);
-  box-shadow: 0 5px 15px rgba(184, 138, 82, 0.3);
+  box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
 }
 
 .contact-form {
