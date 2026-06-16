@@ -69,10 +69,11 @@ const projects = [
 
 const experience = [
     {
-        title: 'Software Engineer Intern at Zequin Technology Pvt Ltd',
-        desc: 'Developed and maintained features for a large-scale web application using React and Node.js. Collaborated with a team of engineers to deliver high-quality code in an agile environment.',
-        tags: ['React', 'Node.js', 'TypeScript', 'PostgreSQL', 'Docker'],
-        image: 'https://www.image2url.com/r2/default/images/1781365406013-e08035ab-457a-4f5b-8b39-9128186223b3.jpeg',
+        title: 'Incoming Software Engineer Intern',
+        org: 'Zequin Technology Pvt Ltd',
+        date: 'June 2026 - Dec 2026',
+        desc: 'An upcoming hybrid internship.',
+        image: 'https://www.image2url.com/r2/default/images/1781591254500-a99fdc05-11fd-4ff8-9c66-e3c110939a64.png',
         link: '#',
     },
 ];
@@ -264,14 +265,16 @@ function App() {
 							>
 								<img src={exp.image} alt={exp.title} className="project-img" />
 								<div className="project-content">
+                                    {exp.date && <span className="timeline-date">{exp.date}</span>}
 									<div className="project-tags">
-										{exp.tags.map((tag, i) => (
+										{exp.tags && exp.tags.map((tag, i) => (
 											<span key={i} className="tag">
 												{tag}
 											</span>
 										))}
 									</div>
 									<h3 className="project-title">{exp.title}</h3>
+                                    {exp.org && <p className="timeline-org">{exp.org}</p>}
 									<p className="project-desc">{exp.desc}</p>
 								</div>
 							</motion.div>
