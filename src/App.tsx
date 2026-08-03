@@ -59,6 +59,13 @@ const projects = [
 		link: '#',
 	},
 	{
+		title: 'YUKTI – AI Decision Intelligence for Smart Governance',
+		desc: 'Engineered an AI-driven governance platform that integrates grievance analytics, interactive constituency mapping, intelligent project prioritization, and what-if budget simulations to enable transparent, evidence-based public infrastructure planning.',
+		tags: ['React', 'TypeScript', 'Tailwind CSS', 'FastAPI', 'Google Gemini API', 'Machine Learning', 'Leaflet Maps'],
+		image: 'https://www.image2url.com/r2/default/images/1785749644775-7613776e-0db7-4bac-8c23-37cb887e19e5.png',
+		link: '#',
+	},
+	{
 		title: 'Wayora – AI Travel Companion Platform',
 		desc: 'Designed an AI-driven travel platform with itinerary generation, budget optimization, and integrated accommodation, transport, and local discovery modules.intro',
 		tags: ['React Native', 'Supabase', 'PostgreSQL', 'OpenStreetMap'],
@@ -256,7 +263,7 @@ function App() {
 					</motion.h2>
 
 					<motion.div
-						className="projects-grid"
+						className="projects-grid experience-grid"
 						initial="hidden"
 						whileInView="visible"
 						viewport={{ once: true, margin: '-100px' }}
